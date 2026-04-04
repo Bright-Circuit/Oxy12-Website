@@ -4,7 +4,6 @@ import { usePathname } from 'next/navigation';
 import Box from '@mui/material/Box';
 import Header from '../../components/layout/Header';
 import Footer from '../../components/layout/Footer';
-import BottomNav from '../../components/layout/BottomNav';
 
 export default function WebsiteLayout({ children }) {
   const pathname = usePathname();
@@ -23,7 +22,6 @@ export default function WebsiteLayout({ children }) {
         {children}
       </Box>
       <Footer />
-      <BottomNav />
     </Box>
   );
 }

@@ -1,7 +1,6 @@
 import '../styles/globals.css';
 import QueryProvider from '../providers/QueryProvider';
 import ThemeProvider from '../providers/ThemeProvider';
-import FloatingSnackbar from '../components/layout/FloatingSnackbar';
 
 export const metadata = {
   title: 'OXY12',
@@ -15,7 +14,6 @@ export default function RootLayout({ children }) {
         <QueryProvider>
           <ThemeProvider>
             {children}
-            <FloatingSnackbar />
           </ThemeProvider>
         </QueryProvider>
       </body>
