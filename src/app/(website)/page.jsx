@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Box, Container, Typography, Button, Stack, Grid, Paper } from '@mui/material'
 import BusinessIcon from '@mui/icons-material/Business'
 import SupportAgentIcon from '@mui/icons-material/SupportAgent'
@@ -12,8 +12,51 @@ import StarIcon from '@mui/icons-material/Star'
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 
+// Custom hook for scroll animations
+const useInView = (ref, options = {}) => {
+  const [isInView, setIsInView] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsInView(true)
+        observer.unobserve(entry.target)
+      }
+    }, {
+      threshold: 0.1,
+      ...options,
+    })
+
+    if (ref.current) {
+      observer.observe(ref.current)
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current)
+      }
+    }
+  }, [ref, options])
+
+  return isInView
+}
+
 export default function page() {
   const [currentIndex, setCurrentIndex] = useState(1)
+
+  // Refs for scroll animations
+  const featuresRef = useRef(null)
+  const whoWeAreRef = useRef(null)
+  const servicesRef = useRef(null)
+  const ctaRef = useRef(null)
+  const testimonialsRef = useRef(null)
+
+  // Check if sections are in view
+  const featuresInView = useInView(featuresRef)
+  const whoWeAreInView = useInView(whoWeAreRef)
+  const servicesInView = useInView(servicesRef)
+  const ctaInView = useInView(ctaRef)
+  const testimonialsInView = useInView(testimonialsRef)
 
   const testimonials = [
     {
@@ -92,6 +135,24 @@ export default function page() {
           marginTop: { xs: '70px', sm: '70px', md: '60px', lg: '80px', xl: '20px' },
           background: 'url(/images/hero-images/hero.png) center center/cover no-repeat',
           padding: { xs: '50px 10px', sm: '50px 20px', md: '40px 0', lg: '20px 0' },
+          '@keyframes fadeInUp': {
+            from: {
+              opacity: 0,
+              transform: 'translateY(30px)',
+            },
+            to: {
+              opacity: 1,
+              transform: 'translateY(0)',
+            },
+          },
+          '@keyframes float': {
+            '0%, 100%': {
+              transform: 'translateY(0px)',
+            },
+            '50%': {
+              transform: 'translateY(-20px)',
+            },
+          },
         }}
       >
         <Box
@@ -102,6 +163,71 @@ export default function page() {
             width: '100%',
             height: '100%',
             pointerEvents: 'none',
+          }}
+        />
+
+        {/* Floating Shapes */}
+        {/* Shape 1 - Top Left */}
+        <Box
+          sx={{
+            position: 'absolute',
+            top: '10%',
+            left: '5%',
+            width: { xs: '40px', md: '80px' },
+            height: { xs: '40px', md: '80px' },
+            borderRadius: '50%',
+            backgroundColor: 'rgba(250, 131, 43, 0.1)',
+            pointerEvents: 'none',
+            animation: 'float 4s ease-in-out infinite',
+            zIndex: 1,
+          }}
+        />
+
+        {/* Shape 2 - Top Right */}
+        <Box
+          sx={{
+            position: 'absolute',
+            top: '15%',
+            right: '8%',
+            width: { xs: '50px', md: '100px' },
+            height: { xs: '50px', md: '100px' },
+            borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%',
+            backgroundColor: 'rgba(250, 131, 43, 0.08)',
+            pointerEvents: 'none',
+            animation: 'float 5s ease-in-out infinite reverse',
+            zIndex: 1,
+          }}
+        />
+
+        {/* Shape 3 - Bottom Left */}
+        <Box
+          sx={{
+            position: 'absolute',
+            bottom: '10%',
+            left: '10%',
+            width: { xs: '60px', md: '120px' },
+            height: { xs: '60px', md: '120px' },
+            borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
+            backgroundColor: 'rgba(250, 131, 43, 0.07)',
+            pointerEvents: 'none',
+            animation: 'float 6s ease-in-out infinite',
+            zIndex: 1,
+          }}
+        />
+
+        {/* Shape 4 - Bottom Right */}
+        <Box
+          sx={{
+            position: 'absolute',
+            bottom: '15%',
+            right: '5%',
+            width: { xs: '45px', md: '90px' },
+            height: { xs: '45px', md: '90px' },
+            borderRadius: '50%',
+            backgroundColor: 'rgba(250, 131, 43, 0.09)',
+            pointerEvents: 'none',
+            animation: 'float 4.5s ease-in-out infinite reverse',
+            zIndex: 1,
           }}
         />
 
@@ -128,6 +254,7 @@ export default function page() {
                 color: '#1a2855',
                 letterSpacing: '-1px',
                 margin: 0,
+                animation: 'fadeInUp 0.8s ease-out 0.2s both',
               }}
             >
               Transforming Visions
@@ -153,6 +280,7 @@ export default function page() {
                 lineHeight: 1.6,
                 maxWidth: { xs: '100%', md: '500px' },
                 fontWeight: 400,
+                animation: 'fadeInUp 0.8s ease-out 0.4s both',
               }}
             >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -166,6 +294,7 @@ export default function page() {
               sx={{
                 justifyContent: 'center',
                 width: { xs: '100%', sm: 'auto' },
+                animation: 'fadeInUp 0.8s ease-out 0.6s both',
               }}
             >
               <Button
@@ -222,17 +351,58 @@ export default function page() {
 
       {/* Features Section */}
       <Box
+        ref={featuresRef}
         sx={{
           bgcolor: 'secondary.main',
           padding: { xs: '60px 20px', md: '100px 20px' },
           position: 'relative',
+          '@keyframes slideInUp': {
+            from: {
+              opacity: 0,
+              transform: 'translateY(50px)',
+            },
+            to: {
+              opacity: 1,
+              transform: 'translateY(0)',
+            },
+          },
+          '@keyframes slideInLeft': {
+            from: {
+              opacity: 0,
+              transform: 'translateX(-50px)',
+            },
+            to: {
+              opacity: 1,
+              transform: 'translateX(0)',
+            },
+          },
+          '@keyframes slideInRight': {
+            from: {
+              opacity: 0,
+              transform: 'translateX(50px)',
+            },
+            to: {
+              opacity: 1,
+              transform: 'translateX(0)',
+            },
+          },
+          '@keyframes scaleInUp': {
+            from: {
+              opacity: 0,
+              transform: 'scale(0.9) translateY(30px)',
+            },
+            to: {
+              opacity: 1,
+              transform: 'scale(1) translateY(0)',
+            },
+          },
         }}
       >
         <Container maxWidth="xl">
           <Grid container spacing={{ xs: 3, md: 2 }} alignItems="center">
             {/* Left Content */}
             <Grid item xs={12} md={4}>
-              <Box>
+              <Box sx={{ animation: featuresInView ? 'slideInLeft 0.8s ease-out' : 'none' }}>
                 <Typography
                   sx={{
                     fontSize: { xs: '28px', sm: '32px', md: '50px' },
@@ -269,7 +439,7 @@ export default function page() {
             </Grid>
 
             {/* Right Content - Cards */}
-            <Grid item xs={12} md={8} justifyContent={'space-between'}>
+            <Grid item xs={12} md={8}>
               <Grid container spacing={{ xs: 2, md: 3 }} alignItems="stretch">
                 {/* Card 1 - Customer Engagement */}
                 <Grid item xs={12} sm={6} md={4}>
@@ -284,6 +454,7 @@ export default function page() {
                       flexDirection: 'column',
                       justifyContent: 'space-between',
                       transition: 'all 0.3s ease',
+                      animation: featuresInView ? 'scaleInUp 0.8s ease-out 0.1s both' : 'none',
                       '&:hover': {
                         border: '1px solid rgba(255, 122, 61, 0.5)',
                         boxShadow: '0 8px 24px rgba(255, 122, 61, 0.15)',
@@ -346,6 +517,7 @@ export default function page() {
                       transition: 'all 0.3s ease',
                       boxShadow: '0 20px 60px rgba(0, 26, 77, 0.3)',
                       transform: { xs: 'translateY(0)', md: 'translateY(-20px)' },
+                      animation: featuresInView ? 'scaleInUp 0.8s ease-out 0.2s both' : 'none',
                       '&:hover': {
                         transform: { xs: 'translateY(0)', md: 'translateY(-28px)' },
                         boxShadow: '0 30px 80px rgba(0, 26, 77, 0.4)',
@@ -409,6 +581,7 @@ export default function page() {
                       flexDirection: 'column',
                       justifyContent: 'space-between',
                       transition: 'all 0.3s ease',
+                      animation: featuresInView ? 'scaleInUp 0.8s ease-out 0.3s both' : 'none',
                       '&:hover': {
                         border: '1px solid rgba(255, 122, 61, 0.5)',
                         boxShadow: '0 8px 24px rgba(255, 122, 61, 0.15)',
@@ -464,10 +637,19 @@ export default function page() {
 
       {/* Who We Are Section */}
       <Box
+        ref={whoWeAreRef}
         sx={{
           backgroundColor: '#ffffff',
           padding: { xs: '60px 10px', md: '100px 20px' },
           position: 'relative',
+          '@keyframes slideInLeft': {
+            from: { opacity: 0, transform: 'translateX(-50px)' },
+            to: { opacity: 1, transform: 'translateX(0)' },
+          },
+          '@keyframes slideInRight': {
+            from: { opacity: 0, transform: 'translateX(50px)' },
+            to: { opacity: 1, transform: 'translateX(0)' },
+          },
         }}
       >
         <Container maxWidth="xl">
@@ -480,6 +662,7 @@ export default function page() {
                   height: { xs: '350px', md: '450px' },
                   borderRadius: '24px',
                   overflow: 'hidden',
+                  animation: whoWeAreInView ? 'slideInLeft 0.8s ease-out' : 'none',
                 }}
               >
                 {/* Background gray box */}
@@ -525,7 +708,7 @@ export default function page() {
 
             {/* Right - Content */}
             <Grid item xs={12} md={6}>
-              <Box>
+              <Box sx={{ animation: whoWeAreInView ? 'slideInRight 0.8s ease-out' : 'none' }}>
                 {/* "Who We Are" Label */}
                 <Typography
                   sx={{
@@ -611,15 +794,20 @@ export default function page() {
 
       {/* Services & Solutions Section */}
       <Box
+        ref={servicesRef}
         sx={{
           backgroundColor: '#F9F9F9',
           padding: { xs: '60px 10px', md: '100px 20px' },
           position: 'relative',
+          '@keyframes fadeInUp': {
+            from: { opacity: 0, transform: 'translateY(30px)' },
+            to: { opacity: 1, transform: 'translateY(0)' },
+          },
         }}
       >
         <Container maxWidth="xl">
           {/* Section Header */}
-          <Box sx={{ marginBottom: { xs: '50px', md: '80px' } }}>
+          <Box sx={{ marginBottom: { xs: '50px', md: '80px' }, animation: servicesInView ? 'fadeInUp 0.8s ease-out' : 'none' }}>
             {/* "Services" Label */}
             <Typography
               sx={{
@@ -694,6 +882,7 @@ export default function page() {
                   justifyContent: 'flex-start',
                   minHeight: '320px',
                   transition: 'all 0.3s ease',
+                  animation: servicesInView ? 'fadeInUp 0.8s ease-out 0.1s both' : 'none',
                   boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)',
                   '&:hover': {
                     boxShadow: '0 8px 24px rgba(0, 0, 0, 0.1)',
@@ -757,6 +946,7 @@ export default function page() {
                   justifyContent: 'flex-start',
                   minHeight: '320px',
                   transition: 'all 0.3s ease',
+                  animation: servicesInView ? 'fadeInUp 0.8s ease-out 0.2s both' : 'none',
                   boxShadow: '0 12px 40px rgba(0, 26, 77, 0.25)',
                   transform: { xs: 'none', md: 'translateY(-20px)' },
                   '&:hover': {
@@ -821,6 +1011,7 @@ export default function page() {
                   justifyContent: 'flex-start',
                   minHeight: '320px',
                   transition: 'all 0.3s ease',
+                  animation: servicesInView ? 'fadeInUp 0.8s ease-out 0.3s both' : 'none',
                   boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)',
                   '&:hover': {
                     boxShadow: '0 8px 24px rgba(0, 0, 0, 0.1)',
@@ -876,10 +1067,15 @@ export default function page() {
 
       {/* CTA Section - Ready to Start Your Next Project */}
       <Box
+        ref={ctaRef}
         sx={{
           backgroundColor: '#ffffff',
           padding: { xs: '50px 10px', md: '80px 20px' },
           position: 'relative',
+          '@keyframes scaleInUp': {
+            from: { opacity: 0, transform: 'scale(0.9) translateY(30px)' },
+            to: { opacity: 1, transform: 'scale(1) translateY(0)' },
+          },
         }}
       >
         <Container maxWidth="xl">
@@ -894,6 +1090,7 @@ export default function page() {
               alignItems: 'center',
               justifyContent: 'center',
               minHeight: { xs: '350px', md: '450px' },
+              animation: ctaInView ? 'scaleInUp 0.8s ease-out' : 'none',
             }}
           >
             {/* Main Heading */}
@@ -950,15 +1147,20 @@ export default function page() {
 
       {/* Testimonials Section */}
       <Box
+        ref={testimonialsRef}
         sx={{
           backgroundColor: '#ffffff',
           padding: { xs: '60px 20px', md: '80px 20px' },
           position: 'relative',
+          '@keyframes fadeInUp': {
+            from: { opacity: 0, transform: 'translateY(30px)' },
+            to: { opacity: 1, transform: 'translateY(0)' },
+          },
         }}
       >
         <Container maxWidth="xl">
           {/* Section Header */}
-          <Box sx={{ textAlign: 'center', marginBottom: { xs: '50px', md: '80px' } }}>
+          <Box sx={{ textAlign: 'center', marginBottom: { xs: '50px', md: '80px' }, animation: testimonialsInView ? 'fadeInUp 0.8s ease-out' : 'none' }}>
             {/* "Testimonials" Label */}
             <Typography
               sx={{
@@ -993,6 +1195,7 @@ export default function page() {
               alignItems: 'center',
               justifyContent: 'center',
               gap: { xs: 2, md: 4 },
+              animation: testimonialsInView ? 'fadeInUp 0.8s ease-out 0.2s both' : 'none',
             }}
           >
             {/* Previous Button */}
