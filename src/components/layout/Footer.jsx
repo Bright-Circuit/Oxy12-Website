@@ -9,8 +9,8 @@ export default function Footer() {
     <Box
       sx={{
         backgroundColor: '#F9F9F9',
-        paddingTop: { xs: '60px', md: '80px' },
-        paddingBottom: { xs: '40px', md: '60px' },
+        paddingTop: { xs: '20px', md: '80px' },
+        paddingBottom: { xs: '40px', md: '40px' },
       }}
     >
       <Container maxWidth="xl">
@@ -51,8 +51,8 @@ export default function Footer() {
           >
             <Box
               sx={{
-                width: '50px',
-                height: '50px',
+                width: { xs: '40px', md: '50px' },
+                height: { xs: '40px', md: '50px' },
                 backgroundColor: 'primary.main',
                 borderRadius: '50%',
                 display: 'flex',
@@ -61,7 +61,7 @@ export default function Footer() {
                 flexShrink: 0,
               }}
             >
-              <PhoneIcon sx={{ color: 'white', fontSize: '24px' }} />
+              <PhoneIcon sx={{ color: 'white', fontSize: { xs: '20px', md: '24px' } }} />
             </Box>
             <Typography
               sx={{
@@ -84,8 +84,8 @@ export default function Footer() {
           >
             <Box
               sx={{
-                width: '50px',
-                height: '50px',
+                width: { xs: '40px', md: '50px' },
+                height: { xs: '40px', md: '50px' },
                 backgroundColor: 'primary.main',
                 borderRadius: '50%',
                 display: 'flex',
@@ -94,7 +94,7 @@ export default function Footer() {
                 flexShrink: 0,
               }}
             >
-              <EmailIcon sx={{ color: 'white', fontSize: '24px' }} />
+              <EmailIcon sx={{ color: 'white', fontSize: { xs: '20px', md: '24px' } }} />
             </Box>
             <Typography
               sx={{
@@ -117,8 +117,8 @@ export default function Footer() {
           >
             <Box
               sx={{
-                width: '50px',
-                height: '50px',
+                width: { xs: '40px', md: '50px' },
+                height: { xs: '40px', md: '50px' },
                 backgroundColor: 'primary.main',
                 borderRadius: '50%',
                 display: 'flex',
@@ -127,7 +127,7 @@ export default function Footer() {
                 flexShrink: 0,
               }}
             >
-              <LanguageIcon sx={{ color: 'white', fontSize: '24px' }} />
+              <LanguageIcon sx={{ color: 'white', fontSize: { xs: '20px', md: '24px' } }} />
             </Box>
             <Typography
               sx={{
@@ -145,7 +145,7 @@ export default function Footer() {
         <Divider
           sx={{
             marginBottom: { xs: '40px', md: '50px' },
-            backgroundColor: '#E0E0E0',
+            backgroundColor: '#e0e0e027',
           }}
         />
 

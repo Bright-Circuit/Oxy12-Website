@@ -101,7 +101,7 @@ export default function Header() {
   return (
     <>
       <AppBar
-        position="relative"
+        position="fixed"
         sx={{
           backgroundColor: '#ffffff',
           boxShadow: 'none',

@@ -20,7 +20,7 @@ export default function page() {
       id: 1,
       rating: 5.0,
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
-      author: 'John Deo',
+      author: 'Test 1',
       title: 'CEO at ABC',
       avatar: '/images/avatar-1.jpg',
     },
@@ -28,7 +28,7 @@ export default function page() {
       id: 2,
       rating: 5.0,
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
-      author: 'John Deo',
+      author: 'Test 2',
       title: 'CEO at ABC',
       avatar: '/images/avatar-2.jpg',
     },
@@ -36,7 +36,7 @@ export default function page() {
       id: 3,
       rating: 5.0,
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
-      author: 'John Deo',
+      author: 'Test 3',
       title: 'CEO at ABC',
       avatar: '/images/avatar-3.jpg',
     },
@@ -44,7 +44,7 @@ export default function page() {
       id: 4,
       rating: 5.0,
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
-      author: 'John Deo',
+      author: 'Test 4',
       title: 'CEO at ABC',
       avatar: '/images/avatar-4.jpg',
     },
@@ -52,7 +52,7 @@ export default function page() {
       id: 5,
       rating: 5.0,
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
-      author: 'John Deo',
+      author: 'Test 5',
       title: 'CEO at ABC',
       avatar: '/images/avatar-5.jpg',
     },
@@ -83,17 +83,17 @@ export default function page() {
       <Box
         sx={{
           position: 'relative',
-          minHeight: { xs: 'auto', sm: '80vh', md: '100vh' },
+          minHeight: { xs: 'auto', sm: '80vh', md: '120vh' },
           width: '100%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           overflow: 'hidden',
-          background: '#ffffff',
-          padding: { xs: '50px 10px', sm: '50px 20px', md: '40px 0', lg: '40px 0' },
+          marginTop: { xs: '70px', sm: '70px', md: '60px', lg: '80px', xl: '20px' },
+          background: 'url(/images/hero-images/hero.png) center center/cover no-repeat',
+          padding: { xs: '50px 10px', sm: '50px 20px', md: '40px 0', lg: '20px 0' },
         }}
       >
-        {/* Background shapes - placeholder for your background images */}
         <Box
           sx={{
             position: 'absolute',
@@ -102,7 +102,6 @@ export default function page() {
             width: '100%',
             height: '100%',
             pointerEvents: 'none',
-            // Add your background image here in the future
           }}
         />
 
@@ -230,17 +229,17 @@ export default function page() {
         }}
       >
         <Container maxWidth="xl">
-          <Grid container spacing={2} alignItems="center">
+          <Grid container spacing={{ xs: 3, md: 2 }} alignItems="center">
             {/* Left Content */}
             <Grid item xs={12} md={4}>
               <Box>
                 <Typography
                   sx={{
-                    fontSize: { xs: '32px', md: '50px' },
+                    fontSize: { xs: '28px', sm: '32px', md: '50px' },
                     fontWeight: 700,
                     color: 'white',
                     lineHeight: 1.3,
-                    marginBottom: '30px',
+                    marginBottom: { xs: '20px', md: '30px' },
                   }}
                 >
                   Build your Best <br></br>Product with us!
@@ -249,8 +248,8 @@ export default function page() {
                 <Button
                   variant="contained"
                   sx={{
-                    padding: '12px 40px',
-                    fontSize: '16px',
+                    padding: { xs: '10px 20px', md: '12px 40px' },
+                    fontSize: { xs: '14px', md: '16px' },
                     fontWeight: 600,
                     backgroundColor: 'primary.main',
                     color: 'white',
@@ -271,16 +270,16 @@ export default function page() {
 
             {/* Right Content - Cards */}
             <Grid item xs={12} md={8} justifyContent={'space-between'}>
-              <Grid container spacing={3} alignItems="stretch">
+              <Grid container spacing={{ xs: 2, md: 3 }} alignItems="stretch">
                 {/* Card 1 - Customer Engagement */}
                 <Grid item xs={12} sm={6} md={4}>
                   <Box
                     sx={{
                       background: 'transparent',
-                      border: '1px solid rgba(255, 255, 255, 0.2)',
+                      border: '1px solid rgba(255, 255, 255, 0.96)',
                       borderRadius: '16px',
-                      padding: '30px',
-                      minHeight: '280px',
+                      padding: { xs: '20px', md: '30px' },
+                      minHeight: { xs: '240px', md: '280px' },
                       display: 'flex',
                       flexDirection: 'column',
                       justifyContent: 'space-between',
@@ -293,23 +292,24 @@ export default function page() {
                   >
                     <Box
                       sx={{
-                        width: '50px',
-                        height: '50px',
-                        backgroundColor: 'primary.main',
+                        width: { xs: '55px', md: '65px' },
+                        height: { xs: '55px', md: '65px' },
+                        mt: { xs: '-50px', md: '-60px' },
+                        backgroundColor: 'white',
                         borderRadius: '12px',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        marginBottom: '15px',
+                        // marginBottom: '15px',
                       }}
                     >
-                      <BusinessIcon sx={{ color: 'white', fontSize: '28px' }} />
+                      <BusinessIcon sx={{ color: 'primary.main', fontSize: { xs: '24px', md: '28px' } }} />
                     </Box>
 
                     <Box>
                       <Typography
                         sx={{
-                          fontSize: '22px',
+                          fontSize: { xs: '18px', md: '22px' },
                           fontWeight: 700,
                           color: 'white',
                           marginBottom: '12px',
@@ -320,7 +320,7 @@ export default function page() {
 
                       <Typography
                         sx={{
-                          fontSize: '14px',
+                          fontSize: { xs: '13px', md: '14px' },
                           color: 'rgba(255, 255, 255, 0.7)',
                           lineHeight: 1.6,
                         }}
@@ -338,48 +338,45 @@ export default function page() {
                     sx={{
                       background: 'white',
                       borderRadius: '16px',
-                      padding: '40px 30px',
-                      minHeight: '280px',
+                      padding: { xs: '20px', md: '40px 30px' },
+                      minHeight: { xs: '240px', md: '280px' },
                       display: 'flex',
                       flexDirection: 'column',
                       justifyContent: 'space-between',
                       transition: 'all 0.3s ease',
                       boxShadow: '0 20px 60px rgba(0, 26, 77, 0.3)',
-                      transform: 'translateY(-20px)',
+                      transform: { xs: 'translateY(0)', md: 'translateY(-20px)' },
                       '&:hover': {
-                        transform: 'translateY(-28px)',
+                        transform: { xs: 'translateY(0)', md: 'translateY(-28px)' },
                         boxShadow: '0 30px 80px rgba(0, 26, 77, 0.4)',
                       },
                     }}
                   >
                     <Box
                       sx={{
-                        width: '60px',
-                        height: '60px',
+                        width: { xs: '55px', md: '65px' },
+                        height: { xs: '55px', md: '65px' },
+                        mt: { xs: '-50px', md: '-70px' },
                         backgroundColor: 'primary.main',
-                        borderRadius: '14px',
+                        borderRadius: '12px',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        marginBottom: '15px',
-                        marginTop: '-75px',
-                        marginLeft: 'auto',
-                        marginRight: 'auto',
+                        // marginBottom: '15px',
                       }}
                     >
                       <SupportAgentIcon
-                        sx={{ color: 'white', fontSize: '32px' }}
+                        sx={{ color: 'white', fontSize: { xs: '28px', md: '32px' } }}
                       />
                     </Box>
 
                     <Box>
                       <Typography
                         sx={{
-                          fontSize: '22px',
+                          fontSize: { xs: '18px', md: '22px' },
                           fontWeight: 700,
                           color: '#001a4d',
                           marginBottom: '12px',
-                          textAlign: 'center',
                         }}
                       >
                         We Provide 24 Hour Support
@@ -387,10 +384,9 @@ export default function page() {
 
                       <Typography
                         sx={{
-                          fontSize: '14px',
+                          fontSize: { xs: '13px', md: '14px' },
                           color: '#666666',
                           lineHeight: 1.6,
-                          textAlign: 'center',
                         }}
                       >
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -405,10 +401,10 @@ export default function page() {
                   <Box
                     sx={{
                       background: 'transparent',
-                      border: '1px solid rgba(255, 255, 255, 0.2)',
+                      border: '1px solid rgb(255, 255, 255)',
                       borderRadius: '16px',
-                      padding: '30px',
-                      minHeight: '280px',
+                      padding: { xs: '20px', md: '30px' },
+                      minHeight: { xs: '240px', md: '280px' },
                       display: 'flex',
                       flexDirection: 'column',
                       justifyContent: 'space-between',
@@ -421,9 +417,10 @@ export default function page() {
                   >
                     <Box
                       sx={{
-                        width: '50px',
-                        height: '50px',
-                        backgroundColor: 'primary.main',
+                        width: { xs: '55px', md: '65px' },
+                        height: { xs: '55px', md: '65px' },
+                        mt: { xs: '-50px', md: '-60px' },
+                        backgroundColor: 'white',
                         borderRadius: '12px',
                         display: 'flex',
                         alignItems: 'center',
@@ -431,13 +428,13 @@ export default function page() {
                         marginBottom: '15px',
                       }}
                     >
-                      <TrendingUpIcon sx={{ color: 'white', fontSize: '28px' }} />
+                      <TrendingUpIcon sx={{ color: 'primary.main', fontSize: { xs: '24px', md: '28px' } }} />
                     </Box>
 
                     <Box>
                       <Typography
                         sx={{
-                          fontSize: '22px',
+                          fontSize: { xs: '18px', md: '22px' },
                           fontWeight: 700,
                           color: 'white',
                           marginBottom: '12px',
@@ -448,7 +445,7 @@ export default function page() {
 
                       <Typography
                         sx={{
-                          fontSize: '14px',
+                          fontSize: { xs: '13px', md: '14px' },
                           color: 'rgba(255, 255, 255, 0.7)',
                           lineHeight: 1.6,
                         }}
@@ -955,7 +952,7 @@ export default function page() {
       <Box
         sx={{
           backgroundColor: '#ffffff',
-          padding: { xs: '60px 20px', md: '100px 20px' },
+          padding: { xs: '60px 20px', md: '80px 20px' },
           position: 'relative',
         }}
       >
@@ -1036,19 +1033,19 @@ export default function page() {
                   <Box
                     key={testimonial.id}
                     sx={{
-                      backgroundColor: isCenter ? '#0D1F3C' : '#F9F9F9',
+                      backgroundColor: isCenter ? 'secondary.main' : '#ffffff',
                       borderRadius: '20px',
                       padding: { xs: '30px 25px', md: '40px 30px' },
                       minHeight: '380px',
                       display: { xs: index === 1 ? 'flex' : 'none', md: 'flex' },
                       flexDirection: 'column',
                       justifyContent: 'space-between',
-                      transition: 'all 0.3s ease',
+                      transition: 'all 0.5s ease',
                       transform: isCenter ? 'scale(1.05)' : 'scale(1)',
                       opacity: index === 0 || index === 2 ? 0.6 : 1,
                       boxShadow: isCenter
                         ? '0 12px 40px rgba(0, 26, 77, 0.25)'
-                        : 'none',
+                        : '0 12px 40px rgba(49, 55, 66, 0.25)',
                     }}
                   >
                     {/* Rating */}
