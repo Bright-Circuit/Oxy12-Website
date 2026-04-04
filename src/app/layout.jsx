@@ -5,6 +5,9 @@ import ThemeProvider from '../providers/ThemeProvider';
 export const metadata = {
   title: 'OXY12',
   description: 'OXY12 is a cutting-edge web application built with Next.js, designed to provide users with an exceptional experience. With its sleek design and powerful features, OXY12 is the ultimate platform for all your needs.',
+  icons: {
+    icon: '/images/logo/logo.png',
+  },
 };
 
 export default function RootLayout({ children }) {
