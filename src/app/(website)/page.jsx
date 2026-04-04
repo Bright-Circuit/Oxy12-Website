@@ -1,15 +1,82 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import { Box, Container, Typography, Button, Stack, Grid, Paper } from '@mui/material'
 import BusinessIcon from '@mui/icons-material/Business'
 import SupportAgentIcon from '@mui/icons-material/SupportAgent'
 import TrendingUpIcon from '@mui/icons-material/TrendingUp'
 import CodeIcon from '@mui/icons-material/Code'
-import ApiIcon from '@mui/icons-material/Api';
-import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import ApiIcon from '@mui/icons-material/Api'
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn'
+import StarIcon from '@mui/icons-material/Star'
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
+import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 
 export default function page() {
+  const [currentIndex, setCurrentIndex] = useState(1)
+
+  const testimonials = [
+    {
+      id: 1,
+      rating: 5.0,
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
+      author: 'John Deo',
+      title: 'CEO at ABC',
+      avatar: '/images/avatar-1.jpg',
+    },
+    {
+      id: 2,
+      rating: 5.0,
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
+      author: 'John Deo',
+      title: 'CEO at ABC',
+      avatar: '/images/avatar-2.jpg',
+    },
+    {
+      id: 3,
+      rating: 5.0,
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
+      author: 'John Deo',
+      title: 'CEO at ABC',
+      avatar: '/images/avatar-3.jpg',
+    },
+    {
+      id: 4,
+      rating: 5.0,
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
+      author: 'John Deo',
+      title: 'CEO at ABC',
+      avatar: '/images/avatar-4.jpg',
+    },
+    {
+      id: 5,
+      rating: 5.0,
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
+      author: 'John Deo',
+      title: 'CEO at ABC',
+      avatar: '/images/avatar-5.jpg',
+    },
+  ]
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+    )
+  }
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+    )
+  }
+
+  const getVisibleTestimonials = () => {
+    const prev = currentIndex === 0 ? testimonials.length - 1 : currentIndex - 1
+    const next =
+      currentIndex === testimonials.length - 1 ? 0 : currentIndex + 1
+    return [testimonials[prev], testimonials[currentIndex], testimonials[next]]
+  }
+
   return (
     <>
       {/* Hero Section */}
@@ -684,7 +751,7 @@ export default function page() {
             <Grid item xs={12} sm={6} md={4}>
               <Box
                 sx={{
-                  backgroundColor: '#0D1F3C',
+                  backgroundColor: 'secondary.main',
                   borderRadius: '16px',
                   padding: { xs: '40px 30px', md: '50px 35px' },
                   display: 'flex',
@@ -807,6 +874,349 @@ export default function page() {
               </Box>
             </Grid>
           </Grid>
+        </Container>
+      </Box>
+
+      {/* CTA Section - Ready to Start Your Next Project */}
+      <Box
+        sx={{
+          backgroundColor: '#ffffff',
+          padding: { xs: '50px 10px', md: '80px 20px' },
+          position: 'relative',
+        }}
+      >
+        <Container maxWidth="xl">
+          <Box
+            sx={{
+              backgroundColor: 'secondary.main',
+              borderRadius: { xs: '20px', md: '32px' },
+              padding: { xs: '50px 30px', sm: '70px 40px', md: '100px 60px' },
+              textAlign: 'center',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              minHeight: { xs: '350px', md: '450px' },
+            }}
+          >
+            {/* Main Heading */}
+            <Typography
+              sx={{
+                fontSize: { xs: '32px', sm: '45px', md: '50px', lg: '60px' },
+                fontWeight: 700,
+                color: '#FFFFFF',
+                lineHeight: 1.2,
+                marginBottom: '24px',
+              }}
+            >
+              Ready to Start Your Next Project?
+            </Typography>
+
+            {/* Description */}
+            <Typography
+              sx={{
+                fontSize: { xs: '16px', md: '18px' },
+                color: 'rgba(255, 255, 255, 0.9)',
+                lineHeight: 1.8,
+                marginBottom: '40px',
+                maxWidth: '600px',
+              }}
+            >
+              We are currently accepting new projects for the upcoming quarter.
+              <br />
+              Let's build something exceptional together.
+            </Typography>
+
+            {/* CTA Button */}
+            <Button
+              sx={{
+                padding: '12px 48px',
+                fontSize: '16px',
+                fontWeight: 600,
+                backgroundColor: 'primary.main',
+                color: 'white',
+                borderRadius: '10px',
+                textTransform: 'none',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  backgroundColor: '#e56a2e',
+                  transform: 'translateY(-2px)',
+                  boxShadow: '0 8px 16px rgba(255, 122, 61, 0.3)',
+                },
+              }}
+            >
+              Get in Touch
+            </Button>
+          </Box>
+        </Container>
+      </Box>
+
+      {/* Testimonials Section */}
+      <Box
+        sx={{
+          backgroundColor: '#ffffff',
+          padding: { xs: '60px 20px', md: '100px 20px' },
+          position: 'relative',
+        }}
+      >
+        <Container maxWidth="xl">
+          {/* Section Header */}
+          <Box sx={{ textAlign: 'center', marginBottom: { xs: '50px', md: '80px' } }}>
+            {/* "Testimonials" Label */}
+            <Typography
+              sx={{
+                fontSize: '16px',
+                fontWeight: 600,
+                color: 'primary.main',
+                marginBottom: '12px',
+                letterSpacing: '0.5px',
+              }}
+            >
+              Testimonials
+            </Typography>
+
+            {/* Heading */}
+            <Typography
+              sx={{
+                fontSize: { xs: '40px', sm: '50px', md: '56px' },
+                fontWeight: 700,
+                color: '#000000',
+                lineHeight: 1.2,
+              }}
+            >
+              Happy Clients
+            </Typography>
+          </Box>
+
+          {/* Carousel Container */}
+          <Box
+            sx={{
+              position: 'relative',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: { xs: 2, md: 4 },
+            }}
+          >
+            {/* Previous Button */}
+            <Button
+              onClick={handlePrev}
+              sx={{
+                display: { xs: 'none', md: 'flex' },
+                minWidth: 'auto',
+                width: '50px',
+                height: '50px',
+                borderRadius: '50%',
+                backgroundColor: 'transparent',
+                border: '2px solid #E0E0E0',
+                color: '#333333',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  borderColor: 'primary.main',
+                  color: 'primary.main',
+                },
+              }}
+            >
+              <ChevronLeftIcon />
+            </Button>
+
+            {/* Cards Container */}
+            <Box
+              sx={{
+                display: 'grid',
+                gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' },
+                gap: { xs: 3, md: 4 },
+                width: '100%',
+                maxWidth: '1200px',
+              }}
+            >
+              {getVisibleTestimonials().map((testimonial, index) => {
+                const isCenter = index === 1
+                return (
+                  <Box
+                    key={testimonial.id}
+                    sx={{
+                      backgroundColor: isCenter ? '#0D1F3C' : '#F9F9F9',
+                      borderRadius: '20px',
+                      padding: { xs: '30px 25px', md: '40px 30px' },
+                      minHeight: '380px',
+                      display: { xs: index === 1 ? 'flex' : 'none', md: 'flex' },
+                      flexDirection: 'column',
+                      justifyContent: 'space-between',
+                      transition: 'all 0.3s ease',
+                      transform: isCenter ? 'scale(1.05)' : 'scale(1)',
+                      opacity: index === 0 || index === 2 ? 0.6 : 1,
+                      boxShadow: isCenter
+                        ? '0 12px 40px rgba(0, 26, 77, 0.25)'
+                        : 'none',
+                    }}
+                  >
+                    {/* Rating */}
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        marginBottom: '20px',
+                      }}
+                    >
+                      {[...Array(5)].map((_, i) => (
+                        <StarIcon
+                          key={i}
+                          sx={{
+                            color: 'primary.main',
+                            fontSize: '20px',
+                          }}
+                        />
+                      ))}
+                      <Typography
+                        sx={{
+                          fontSize: '16px',
+                          fontWeight: 600,
+                          color: isCenter ? '#FFFFFF' : '#333333',
+                          marginLeft: '8px',
+                        }}
+                      >
+                        {testimonial.rating}
+                      </Typography>
+                    </Box>
+
+                    {/* Testimonial Text */}
+                    <Typography
+                      sx={{
+                        fontSize: '15px',
+                        color: isCenter ? 'rgba(255, 255, 255, 0.85)' : '#666666',
+                        lineHeight: 1.8,
+                        marginBottom: '24px',
+                        flex: 1,
+                        fontStyle: 'italic',
+                      }}
+                    >
+                      " {testimonial.text} "
+                    </Typography>
+
+                    {/* Author Info */}
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '16px',
+                        paddingTop: '20px',
+                        borderTop: isCenter
+                          ? '1px solid rgba(255, 255, 255, 0.1)'
+                          : '1px solid #E0E0E0',
+                      }}
+                    >
+                      {/* Avatar */}
+                      <Box
+                        sx={{
+                          width: '60px',
+                          height: '60px',
+                          borderRadius: '50%',
+                          backgroundColor: '#CCCCCC',
+                          flexShrink: 0,
+                        }}
+                      />
+
+                      {/* Author Details */}
+                      <Box>
+                        <Typography
+                          sx={{
+                            fontSize: '16px',
+                            fontWeight: 600,
+                            color: isCenter ? '#FFFFFF' : '#000000',
+                          }}
+                        >
+                          {testimonial.author}
+                        </Typography>
+                        <Typography
+                          sx={{
+                            fontSize: '14px',
+                            color: isCenter
+                              ? 'rgba(255, 255, 255, 0.7)'
+                              : '#999999',
+                          }}
+                        >
+                          {testimonial.title}
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </Box>
+                )
+              })}
+            </Box>
+
+            {/* Next Button */}
+            <Button
+              onClick={handleNext}
+              sx={{
+                display: { xs: 'none', md: 'flex' },
+                minWidth: 'auto',
+                width: '50px',
+                height: '50px',
+                borderRadius: '50%',
+                backgroundColor: 'transparent',
+                border: '2px solid #E0E0E0',
+                color: '#333333',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  borderColor: 'primary.main',
+                  color: 'primary.main',
+                },
+              }}
+            >
+              <ChevronRightIcon />
+            </Button>
+          </Box>
+
+          {/* Mobile Navigation Buttons */}
+          <Box
+            sx={{
+              display: { xs: 'flex', md: 'none' },
+              justifyContent: 'center',
+              gap: '16px',
+              marginTop: '30px',
+            }}
+          >
+            <Button
+              onClick={handlePrev}
+              sx={{
+                minWidth: 'auto',
+                width: '50px',
+                height: '50px',
+                borderRadius: '50%',
+                backgroundColor: '#F0F0F0',
+                border: 'none',
+                color: '#333333',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  backgroundColor: 'primary.main',
+                  color: 'white',
+                },
+              }}
+            >
+              <ChevronLeftIcon />
+            </Button>
+            <Button
+              onClick={handleNext}
+              sx={{
+                minWidth: 'auto',
+                width: '50px',
+                height: '50px',
+                borderRadius: '50%',
+                backgroundColor: '#F0F0F0',
+                border: 'none',
+                color: '#333333',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  backgroundColor: 'primary.main',
+                  color: 'white',
+                },
+              }}
+            >
+              <ChevronRightIcon />
+            </Button>
+          </Box>
         </Container>
       </Box>
     </>
