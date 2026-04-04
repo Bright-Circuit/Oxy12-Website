@@ -1,0 +1,814 @@
+'use client'
+
+import React from 'react'
+import { Box, Container, Typography, Button, Stack, Grid, Paper } from '@mui/material'
+import BusinessIcon from '@mui/icons-material/Business'
+import SupportAgentIcon from '@mui/icons-material/SupportAgent'
+import TrendingUpIcon from '@mui/icons-material/TrendingUp'
+import CodeIcon from '@mui/icons-material/Code'
+import ApiIcon from '@mui/icons-material/Api';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+
+export default function page() {
+  return (
+    <>
+      {/* Hero Section */}
+      <Box
+        sx={{
+          position: 'relative',
+          minHeight: { xs: 'auto', sm: '80vh', md: '100vh' },
+          width: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          overflow: 'hidden',
+          background: '#ffffff',
+          padding: { xs: '50px 10px', sm: '50px 20px', md: '40px 0', lg: '40px 0' },
+        }}
+      >
+        {/* Background shapes - placeholder for your background images */}
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            pointerEvents: 'none',
+            // Add your background image here in the future
+          }}
+        />
+
+        {/* Hero Content */}
+        <Container maxWidth="lg">
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              textAlign: 'center',
+              gap: { xs: 2.5, md: 4 },
+              position: 'relative',
+              zIndex: 10,
+            }}
+          >
+            {/* Main Heading */}
+            <Typography
+              variant="h1"
+              sx={{
+                fontSize: { xs: '36px', sm: '62px', md: '82px', lg: '98px' },
+                fontWeight: 700,
+                lineHeight: { xs: 1.3, md: 1.2 },
+                color: '#1a2855',
+                letterSpacing: '-1px',
+                margin: 0,
+              }}
+            >
+              Transforming Visions
+              <br />
+              into Conversion
+              <br />
+              <Box
+                component="span"
+                sx={{
+                  color: 'primary.main',
+                }}
+              >
+                Websites
+              </Box>
+            </Typography>
+
+            {/* Description */}
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: { xs: '14px', sm: '14px', md: '16px' },
+                color: '#333333',
+                lineHeight: 1.6,
+                maxWidth: { xs: '100%', md: '500px' },
+                fontWeight: 400,
+              }}
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut
+            </Typography>
+
+            {/* Button Group */}
+            <Stack
+              direction={{ xs: 'row', sm: 'row' }}
+              spacing={{ xs: 2, sm: 2.5 }}
+              sx={{
+                justifyContent: 'center',
+                width: { xs: '100%', sm: 'auto' },
+              }}
+            >
+              <Button
+                variant="contained"
+                sx={{
+                  padding: { xs: '12px 20px', sm: '12px 40px', md: '12px 40px' },
+                  fontSize: { xs: '14px', sm: '14px', md: '16px' },
+                  fontWeight: 600,
+                  backgroundColor: 'primary.main',
+                  color: 'white',
+                  borderRadius: '10px',
+                  border: 'none',
+                  cursor: 'pointer',
+                  textTransform: 'none',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    backgroundColor: '#e56a2e',
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 8px 16px rgba(255, 122, 61, 0.3)',
+                  },
+                }}
+              >
+                Get Started
+              </Button>
+
+              <Button
+                variant="outlined"
+                sx={{
+                  padding: { xs: '10px 20px', sm: '12px 40px', md: '12px 40px' },
+                  fontSize: { xs: '14px', sm: '14px', md: '16px' },
+                  fontWeight: 600,
+                  borderColor: 'primary.main',
+                  color: 'primary.main',
+                  borderRadius: '10px',
+                  border: '2px solid',
+                  backgroundColor: 'transparent',
+                  cursor: 'pointer',
+                  textTransform: 'none',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    backgroundColor: '#ff7a3d',
+                    color: 'white',
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 8px 16px rgba(255, 122, 61, 0.3)',
+                  },
+                }}
+              >
+                Explore More
+              </Button>
+            </Stack>
+          </Box>
+        </Container>
+      </Box>
+
+      {/* Features Section */}
+      <Box
+        sx={{
+          bgcolor: 'secondary.main',
+          padding: { xs: '60px 20px', md: '100px 20px' },
+          position: 'relative',
+        }}
+      >
+        <Container maxWidth="xl">
+          <Grid container spacing={2} alignItems="center">
+            {/* Left Content */}
+            <Grid item xs={12} md={4}>
+              <Box>
+                <Typography
+                  sx={{
+                    fontSize: { xs: '32px', md: '50px' },
+                    fontWeight: 700,
+                    color: 'white',
+                    lineHeight: 1.3,
+                    marginBottom: '30px',
+                  }}
+                >
+                  Build your Best <br></br>Product with us!
+                </Typography>
+
+                <Button
+                  variant="contained"
+                  sx={{
+                    padding: '12px 40px',
+                    fontSize: '16px',
+                    fontWeight: 600,
+                    backgroundColor: 'primary.main',
+                    color: 'white',
+                    borderRadius: '8px',
+                    textTransform: 'none',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      backgroundColor: '#e56a2e',
+                      transform: 'translateY(-2px)',
+                      boxShadow: '0 8px 16px rgba(255, 122, 61, 0.3)',
+                    },
+                  }}
+                >
+                  Let's Talk
+                </Button>
+              </Box>
+            </Grid>
+
+            {/* Right Content - Cards */}
+            <Grid item xs={12} md={8} justifyContent={'space-between'}>
+              <Grid container spacing={3} alignItems="stretch">
+                {/* Card 1 - Customer Engagement */}
+                <Grid item xs={12} sm={6} md={4}>
+                  <Box
+                    sx={{
+                      background: 'transparent',
+                      border: '1px solid rgba(255, 255, 255, 0.2)',
+                      borderRadius: '16px',
+                      padding: '30px',
+                      minHeight: '280px',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'space-between',
+                      transition: 'all 0.3s ease',
+                      '&:hover': {
+                        border: '1px solid rgba(255, 122, 61, 0.5)',
+                        boxShadow: '0 8px 24px rgba(255, 122, 61, 0.15)',
+                      },
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        width: '50px',
+                        height: '50px',
+                        backgroundColor: 'primary.main',
+                        borderRadius: '12px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        marginBottom: '15px',
+                      }}
+                    >
+                      <BusinessIcon sx={{ color: 'white', fontSize: '28px' }} />
+                    </Box>
+
+                    <Box>
+                      <Typography
+                        sx={{
+                          fontSize: '22px',
+                          fontWeight: 700,
+                          color: 'white',
+                          marginBottom: '12px',
+                        }}
+                      >
+                        Customer Engagement
+                      </Typography>
+
+                      <Typography
+                        sx={{
+                          fontSize: '14px',
+                          color: 'rgba(255, 255, 255, 0.7)',
+                          lineHeight: 1.6,
+                        }}
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Grid>
+
+                {/* Card 2 - 24 Hour Support (Highlighted) */}
+                <Grid item xs={12} sm={6} md={4}>
+                  <Box
+                    sx={{
+                      background: 'white',
+                      borderRadius: '16px',
+                      padding: '40px 30px',
+                      minHeight: '280px',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'space-between',
+                      transition: 'all 0.3s ease',
+                      boxShadow: '0 20px 60px rgba(0, 26, 77, 0.3)',
+                      transform: 'translateY(-20px)',
+                      '&:hover': {
+                        transform: 'translateY(-28px)',
+                        boxShadow: '0 30px 80px rgba(0, 26, 77, 0.4)',
+                      },
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        width: '60px',
+                        height: '60px',
+                        backgroundColor: 'primary.main',
+                        borderRadius: '14px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        marginBottom: '15px',
+                        marginTop: '-75px',
+                        marginLeft: 'auto',
+                        marginRight: 'auto',
+                      }}
+                    >
+                      <SupportAgentIcon
+                        sx={{ color: 'white', fontSize: '32px' }}
+                      />
+                    </Box>
+
+                    <Box>
+                      <Typography
+                        sx={{
+                          fontSize: '22px',
+                          fontWeight: 700,
+                          color: '#001a4d',
+                          marginBottom: '12px',
+                          textAlign: 'center',
+                        }}
+                      >
+                        We Provide 24 Hour Support
+                      </Typography>
+
+                      <Typography
+                        sx={{
+                          fontSize: '14px',
+                          color: '#666666',
+                          lineHeight: 1.6,
+                          textAlign: 'center',
+                        }}
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Grid>
+
+                {/* Card 3 - Generate More Sale Easily */}
+                <Grid item xs={12} sm={6} md={4}>
+                  <Box
+                    sx={{
+                      background: 'transparent',
+                      border: '1px solid rgba(255, 255, 255, 0.2)',
+                      borderRadius: '16px',
+                      padding: '30px',
+                      minHeight: '280px',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'space-between',
+                      transition: 'all 0.3s ease',
+                      '&:hover': {
+                        border: '1px solid rgba(255, 122, 61, 0.5)',
+                        boxShadow: '0 8px 24px rgba(255, 122, 61, 0.15)',
+                      },
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        width: '50px',
+                        height: '50px',
+                        backgroundColor: 'primary.main',
+                        borderRadius: '12px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        marginBottom: '15px',
+                      }}
+                    >
+                      <TrendingUpIcon sx={{ color: 'white', fontSize: '28px' }} />
+                    </Box>
+
+                    <Box>
+                      <Typography
+                        sx={{
+                          fontSize: '22px',
+                          fontWeight: 700,
+                          color: 'white',
+                          marginBottom: '12px',
+                        }}
+                      >
+                        Generate More Sale Easily
+                      </Typography>
+
+                      <Typography
+                        sx={{
+                          fontSize: '14px',
+                          color: 'rgba(255, 255, 255, 0.7)',
+                          lineHeight: 1.6,
+                        }}
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+
+      {/* Who We Are Section */}
+      <Box
+        sx={{
+          backgroundColor: '#ffffff',
+          padding: { xs: '60px 10px', md: '100px 20px' },
+          position: 'relative',
+        }}
+      >
+        <Container maxWidth="xl">
+          <Grid container spacing={{ xs: 4, md: 6 }} alignItems="center">
+            {/* Left - Image Placeholder */}
+            <Grid item xs={12} md={6}>
+              <Box
+                sx={{
+                  position: 'relative',
+                  height: { xs: '350px', md: '450px' },
+                  borderRadius: '24px',
+                  overflow: 'hidden',
+                }}
+              >
+                {/* Background gray box */}
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    backgroundColor: '#CCCCCC',
+                    borderRadius: '24px',
+                  }}
+                />
+
+                {/* Orange overlay element */}
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    bottom: '30px',
+                    right: '30px',
+                    width: { xs: '180px', md: '220px' },
+                    height: { xs: '140px', md: '180px' },
+                    backgroundColor: 'primary.main',
+                    borderRadius: '20px',
+                  }}
+                />
+
+                {/* Image - placeholder for user's image */}
+                <Box
+                  component="img"
+                  src="/images/about-image.jpg"
+                  alt="About us"
+                  sx={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    // display: 'none', // Hide until user provides image
+                  }}
+                />
+              </Box>
+            </Grid>
+
+            {/* Right - Content */}
+            <Grid item xs={12} md={6}>
+              <Box>
+                {/* "Who We Are" Label */}
+                <Typography
+                  sx={{
+                    fontSize: { xs: '16px', md: '18px' },
+                    fontWeight: 600,
+                    color: 'primary.main',
+                    marginBottom: '16px',
+                    letterSpacing: '0.5px',
+                  }}
+                >
+                  Who We Are
+                </Typography>
+
+                {/* Heading */}
+                <Typography
+                  sx={{
+                    fontSize: { xs: '32px', sm: '45px', md: '50px', lg: '60px' },
+                    fontWeight: 700,
+                    color: '#000000',
+                    lineHeight: 1.3,
+                    marginBottom: '24px',
+                  }}
+                >
+                  We are building business for your Digital Economy
+                </Typography>
+
+                {/* First Paragraph */}
+                <Typography
+                  sx={{
+                    fontSize: { xs: '15px', md: '16px' },
+                    color: '#333333',
+                    lineHeight: 1.7,
+                    marginBottom: '20px',
+                    fontWeight: 400,
+                  }}
+                >
+                  In today's digital-first world, success depends on how effectively your
+                  business connects, communicates, and grows online. We help turn your vision
+                  into powerful digital solutions that drive real results.
+                </Typography>
+
+                {/* Second Paragraph */}
+                <Typography
+                  sx={{
+                    fontSize: { xs: '15px', md: '16px' },
+                    color: '#333333',
+                    lineHeight: 1.7,
+                    marginBottom: '32px',
+                    fontWeight: 400,
+                  }}
+                >
+                  Our focus is on creating modern, scalable, and high-performing digital
+                  experiences tailored to your unique business needs. From concept to launch,
+                  we ensure every solution is built with strategy, creativity, and technology
+                  working together.
+                </Typography>
+
+                {/* Explore More Button */}
+                <Button
+                  sx={{
+                    padding: '12px 40px',
+                    fontSize: '16px',
+                    fontWeight: 600,
+                    backgroundColor: 'primary.main',
+                    color: 'white',
+                    borderRadius: '10px',
+                    textTransform: 'none',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      backgroundColor: '#e56a2e',
+                      transform: 'translateY(-2px)',
+                      boxShadow: '0 8px 16px rgba(255, 122, 61, 0.3)',
+                    },
+                  }}
+                >
+                  Explore More
+                </Button>
+              </Box>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+
+      {/* Services & Solutions Section */}
+      <Box
+        sx={{
+          backgroundColor: '#F9F9F9',
+          padding: { xs: '60px 10px', md: '100px 20px' },
+          position: 'relative',
+        }}
+      >
+        <Container maxWidth="xl">
+          {/* Section Header */}
+          <Box sx={{ marginBottom: { xs: '50px', md: '80px' } }}>
+            {/* "Services" Label */}
+            <Typography
+              sx={{
+                fontSize: '16px',
+                fontWeight: 600,
+                color: 'primary.main',
+                marginBottom: '12px',
+                letterSpacing: '0.5px',
+              }}
+            >
+              Services
+            </Typography>
+
+            {/* Title and Button in a row */}
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: { xs: 'flex-start', md: 'center' },
+                flexDirection: { xs: 'column', md: 'row' },
+                gap: { xs: '20px', md: '0' },
+              }}
+            >
+              {/* Heading */}
+              <Typography
+                sx={{
+                  fontSize: { xs: '32px', sm: '45px', md: '50px', lg: '60px' },
+                  fontWeight: 700,
+                  color: '#000000',
+                  lineHeight: 1.2,
+                }}
+              >
+                Services & Solutions
+              </Typography>
+
+              {/* See All Services Button */}
+              <Button
+                sx={{
+                  padding: '12px 32px',
+                  fontSize: '16px',
+                  fontWeight: 600,
+                  backgroundColor: 'primary.main',
+                  color: 'white',
+                  borderRadius: '10px',
+                  textTransform: 'none',
+                  whiteSpace: 'nowrap',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    backgroundColor: '#e56a2e',
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 8px 16px rgba(255, 122, 61, 0.3)',
+                  },
+                }}
+              >
+                See All Services
+              </Button>
+            </Box>
+          </Box>
+
+          {/* Service Cards */}
+          <Grid container spacing={{ xs: 3, md: 4 }} alignItems="stretch">
+            {/* Card 1 - Web Development */}
+            <Grid item xs={12} sm={6} md={4}>
+              <Box
+                sx={{
+                  backgroundColor: '#FFFFFF',
+                  borderRadius: '16px',
+                  padding: { xs: '40px 30px', md: '50px 35px' },
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-start',
+                  justifyContent: 'flex-start',
+                  minHeight: '320px',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)',
+                  '&:hover': {
+                    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.1)',
+                    transform: 'translateY(-4px)',
+                  },
+                }}
+              >
+                {/* Icon */}
+                <Box
+                  sx={{
+                    width: '70px',
+                    height: '70px',
+                    backgroundColor: 'primary.main',
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '24px',
+                  }}
+                >
+                  <CodeIcon sx={{ color: 'white', fontSize: '36px' }} />
+                </Box>
+
+                {/* Title */}
+                <Typography
+                  sx={{
+                    fontSize: '24px',
+                    fontWeight: 700,
+                    color: '#000000',
+                    marginBottom: '16px',
+                  }}
+                >
+                  Web Development
+                </Typography>
+
+                {/* Description */}
+                <Typography
+                  sx={{
+                    fontSize: '15px',
+                    color: '#666666',
+                    lineHeight: 1.7,
+                    fontWeight: 400,
+                  }}
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut
+                </Typography>
+              </Box>
+            </Grid>
+
+            {/* Card 2 - Custom Software (Featured/Highlighted) */}
+            <Grid item xs={12} sm={6} md={4}>
+              <Box
+                sx={{
+                  backgroundColor: '#0D1F3C',
+                  borderRadius: '16px',
+                  padding: { xs: '40px 30px', md: '50px 35px' },
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-start',
+                  justifyContent: 'flex-start',
+                  minHeight: '320px',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 12px 40px rgba(0, 26, 77, 0.25)',
+                  transform: { xs: 'none', md: 'translateY(-20px)' },
+                  '&:hover': {
+                    boxShadow: '0 16px 50px rgba(0, 26, 77, 0.35)',
+                    transform: { xs: 'translateY(-4px)', md: 'translateY(-28px)' },
+                  },
+                }}
+              >
+                {/* Icon */}
+                <Box
+                  sx={{
+                    width: '70px',
+                    height: '70px',
+                    backgroundColor: '#FFFFFF',
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '24px',
+                  }}
+                >
+                  <ApiIcon sx={{ color: 'primary.main', fontSize: '36px' }} />
+                </Box>
+
+                {/* Title */}
+                <Typography
+                  sx={{
+                    fontSize: '24px',
+                    fontWeight: 700,
+                    color: '#FFFFFF',
+                    marginBottom: '16px',
+                  }}
+                >
+                  Custom Software
+                </Typography>
+
+                {/* Description */}
+                <Typography
+                  sx={{
+                    fontSize: '15px',
+                    color: 'rgba(255, 255, 255, 0.8)',
+                    lineHeight: 1.7,
+                    fontWeight: 400,
+                  }}
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut
+                </Typography>
+              </Box>
+            </Grid>
+
+            {/* Card 3 - E-Commerce Solutions */}
+            <Grid item xs={12} sm={6} md={4}>
+              <Box
+                sx={{
+                  backgroundColor: '#FFFFFF',
+                  borderRadius: '16px',
+                  padding: { xs: '40px 30px', md: '50px 35px' },
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-start',
+                  justifyContent: 'flex-start',
+                  minHeight: '320px',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)',
+                  '&:hover': {
+                    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.1)',
+                    transform: 'translateY(-4px)',
+                  },
+                }}
+              >
+                {/* Icon */}
+                <Box
+                  sx={{
+                    width: '70px',
+                    height: '70px',
+                    backgroundColor: 'primary.main',
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '24px',
+                  }}
+                >
+                  <MonetizationOnIcon sx={{ color: 'white', fontSize: '36px' }} />
+                </Box>
+
+                {/* Title */}
+                <Typography
+                  sx={{
+                    fontSize: '24px',
+                    fontWeight: 700,
+                    color: '#000000',
+                    marginBottom: '16px',
+                  }}
+                >
+                  E-Commerce Solutions
+                </Typography>
+
+                {/* Description */}
+                <Typography
+                  sx={{
+                    fontSize: '15px',
+                    color: '#666666',
+                    lineHeight: 1.7,
+                    fontWeight: 400,
+                  }}
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut
+                </Typography>
+              </Box>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+    </>
+  )
+}
