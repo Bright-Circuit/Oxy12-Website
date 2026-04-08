@@ -49,8 +49,9 @@ export default function ContactPage() {
     <Box
       sx={{
         backgroundColor: '#ffffff',
-        padding: { xs: '80px 20px', sm: '100px 20px', md: '20px 20px' },
-        minHeight: { xs: '600px', sm: '700px', md: '750px' },
+        padding: { xs: '60px 15px', sm: '100px 20px', md: '20px 20px' },
+        minHeight: { xs: '500px', sm: '700px', md: '750px' },
+        pt: { xs: '150px', sm: '80px', md: '100px' },
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -84,7 +85,7 @@ export default function ContactPage() {
           {/* Main Heading - Part 1 */}
           <Typography
             sx={{
-              fontSize: { xs: '36px', sm: '50px', md: '75px' },
+              fontSize: { xs: '36px', sm: '62px', md: '75px', lg: '75px' },
               fontWeight: 700,
               color: '#000000',
               lineHeight: 1.2,
@@ -147,7 +148,7 @@ export default function ContactPage() {
       <Box
         sx={{
           backgroundColor: '#ffffff',
-          padding: { xs: '60px 20px', sm: '80px 20px', md: '100px 20px' },
+          padding: { xs: '20px 15px', sm: '20px 20px', md: '50px 20px' },
         }}
       >
         <Container maxWidth="lg">
@@ -158,7 +159,13 @@ export default function ContactPage() {
           >
             {/* Left - Inquiry Form */}
             <Grid item xs={12} md={6}>
-              <Box>
+              <Box sx={{bgcolor: '#fff',
+                boxShadow: '0 12px 40px rgba(30, 34, 42, 0.08)',
+                borderRadius: '16px',
+                padding: { xs: '40px 30px', md: '50px' },
+                display: 'flex',
+                flexDirection: 'column',
+              }}>
                 <Typography
                   sx={{
                     fontSize: { xs: '28px', md: '36px' },
@@ -308,12 +315,12 @@ export default function ContactPage() {
                     variant="contained"
                     sx={{
                       width: { xs: '100%', sm: '220px' },
-                      padding: '16px 32px',
+                      padding: '12px 32px',
                       fontSize: '16px',
                       fontWeight: 600,
                       backgroundColor: 'primary.main',
                       color: 'white',
-                      borderRadius: '8px',
+                      borderRadius: '10px',
                       textTransform: 'none',
                       transition: 'all 0.3s ease',
                       display: 'flex',
@@ -321,7 +328,7 @@ export default function ContactPage() {
                       justifyContent: 'center',
                       gap: '8px',
                       '&:hover': {
-                        backgroundColor: '#e56a2e',
+                        backgroundColor: 'primary.main',
                         transform: 'translateY(-2px)',
                         boxShadow: '0 8px 16px rgba(255, 122, 61, 0.3)',
                       },
@@ -338,7 +345,7 @@ export default function ContactPage() {
             <Grid item xs={12} md={6}>
               <Box
                 sx={{
-                  backgroundColor: '#0D1F3C',
+                  backgroundColor: 'secondary.main',
                   borderRadius: '16px',
                   padding: { xs: '40px 30px', md: '50px' },
                   minHeight: { xs: 'auto', md: '500px' },
