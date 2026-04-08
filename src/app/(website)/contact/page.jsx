@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   Box,
   Container,
@@ -16,6 +16,35 @@ import {
   Send,
 } from '@mui/icons-material';
 
+// Custom hook for scroll animations
+const useInView = (ref, options = {}) => {
+  const [isInView, setIsInView] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsInView(true)
+        observer.unobserve(entry.target)
+      }
+    }, {
+      threshold: 0.1,
+      ...options,
+    })
+
+    if (ref.current) {
+      observer.observe(ref.current)
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current)
+      }
+    }
+  }, [ref, options])
+
+  return isInView
+}
+
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
@@ -24,6 +53,14 @@ export default function ContactPage() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+
+  // Refs for scroll animations
+  const heroRef = useRef(null)
+  const formSectionRef = useRef(null)
+
+  // Check if sections are in view
+  const heroInView = useInView(heroRef)
+  const formSectionInView = useInView(formSectionRef)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -47,6 +84,7 @@ export default function ContactPage() {
     <>
       {/* Hero Section */}
     <Box
+      ref={heroRef}
       sx={{
         backgroundColor: '#ffffff',
         padding: { xs: '60px 15px', sm: '100px 20px', md: '20px 20px' },
@@ -56,6 +94,10 @@ export default function ContactPage() {
         alignItems: 'center',
         justifyContent: 'center',
         position: 'relative',
+        '@keyframes fadeInUp': {
+          from: { opacity: 0, transform: 'translateY(30px)' },
+          to: { opacity: 1, transform: 'translateY(0)' },
+        },
       }}
     >
       <Container maxWidth="lg">
@@ -66,6 +108,7 @@ export default function ContactPage() {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
+            animation: heroInView ? 'fadeInUp 0.8s ease-out' : 'none'
           }}
         >
           {/* "Connect With Us" Label */}
@@ -146,9 +189,14 @@ export default function ContactPage() {
 
       {/* Contact Form & Details Section */}
       <Box
+        ref={formSectionRef}
         sx={{
           backgroundColor: '#ffffff',
           padding: { xs: '20px 15px', sm: '20px 20px', md: '50px 20px' },
+          '@keyframes fadeInUp': {
+            from: { opacity: 0, transform: 'translateY(30px)' },
+            to: { opacity: 1, transform: 'translateY(0)' },
+          },
         }}
       >
         <Container maxWidth="lg">
@@ -165,6 +213,12 @@ export default function ContactPage() {
                 padding: { xs: '40px 30px', md: '50px' },
                 display: 'flex',
                 flexDirection: 'column',
+                animation: formSectionInView ? 'fadeInUp 0.8s ease-out 0.1s both' : 'none',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  boxShadow: '0 16px 50px rgba(0, 0, 0, 0.12)',
+                  transform: 'translateY(-4px)',
+                },
               }}>
                 <Typography
                   sx={{
@@ -352,6 +406,12 @@ export default function ContactPage() {
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'flex-start',
+                  animation: formSectionInView ? 'fadeInUp 0.8s ease-out 0.2s both' : 'none',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    boxShadow: '0 16px 50px rgba(0, 7, 43, 0.25)',
+                    transform: 'translateY(-4px)',
+                  },
                 }}
               >
                 <Typography
