@@ -590,7 +590,7 @@ export default function About() {
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'flex-start',
-                  minHeight: '280px',
+                  height: '100%',
                   transition: 'all 0.3s ease',
                   animation: processInView ? 'scaleInUp 0.8s ease-out 0.1s both' : 'none',
                   '&:hover': {
@@ -642,6 +642,7 @@ export default function About() {
                     color: '#333333',
                     lineHeight: 1.7,
                     fontWeight: 400,
+                    flexGrow: 1,
                   }}
                 >
                   We understand your business goals and create a comprehensive project plan.
@@ -659,7 +660,7 @@ export default function About() {
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'flex-start',
-                  minHeight: '280px',
+                  height: '100%',
                   transition: 'all 0.3s ease',
                   animation: processInView ? 'scaleInUp 0.8s ease-out 0.2s both' : 'none',
                   transform: { xs: 'translateY(0)', md: 'translateY(20px)' },
@@ -712,6 +713,7 @@ export default function About() {
                     color: 'rgba(255, 255, 255, 0.8)',
                     lineHeight: 1.7,
                     fontWeight: 400,
+                    flexGrow: 1,
                   }}
                 >
                   Our designers create beautiful wireframes and UI designs based on your requirements.
@@ -729,7 +731,7 @@ export default function About() {
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'flex-start',
-                  minHeight: '280px',
+                  height: '100%',
                   transition: 'all 0.3s ease',
                   animation: processInView ? 'scaleInUp 0.8s ease-out 0.3s both' : 'none',
                   '&:hover': {
@@ -781,6 +783,7 @@ export default function About() {
                     color: '#333333',
                     lineHeight: 1.7,
                     fontWeight: 400,
+                    flexGrow: 1,
                   }}
                 >
                   Our developers build your solution using the latest technologies and best practices.
@@ -798,7 +801,7 @@ export default function About() {
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'flex-start',
-                  minHeight: '280px',
+                  height: '100%',
                   transition: 'all 0.3s ease',
                   animation: processInView ? 'scaleInUp 0.8s ease-out 0.4s both' : 'none',
                   '&:hover': {
@@ -850,6 +853,7 @@ export default function About() {
                     color: 'rgba(255, 255, 255, 0.8)',
                     lineHeight: 1.7,
                     fontWeight: 400,
+                    flexGrow: 1,
                   }}
                 >
                   Rigorous testing ensures your solution is bug-free and performs optimally.
@@ -867,7 +871,7 @@ export default function About() {
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'flex-start',
-                  minHeight: '280px',
+                  height: '100%',
                   transition: 'all 0.3s ease',
                   animation: processInView ? 'scaleInUp 0.8s ease-out 0.5s both' : 'none',
                   '&:hover': {
@@ -919,6 +923,7 @@ export default function About() {
                     color: '#333333',
                     lineHeight: 1.7,
                     fontWeight: 400,
+                    flexGrow: 1,
                   }}
                 >
                   We deploy your solution to production with minimal downtime.
@@ -936,7 +941,7 @@ export default function About() {
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'flex-start',
-                  minHeight: '280px',
+                  height: '100%',
                   transition: 'all 0.3s ease',
                   animation: processInView ? 'scaleInUp 0.8s ease-out 0.6s both' : 'none',
                   '&:hover': {
@@ -988,6 +993,7 @@ export default function About() {
                     color: 'rgba(255, 255, 255, 0.8)',
                     lineHeight: 1.7,
                     fontWeight: 400,
+                    flexGrow: 1,
                   }}
                 >
                   Ongoing support and updates to keep your solution running smoothly.
