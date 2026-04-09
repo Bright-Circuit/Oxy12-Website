@@ -66,7 +66,7 @@ export default function About() {
         ref={aboutRef}
         sx={{
           backgroundColor: "#FFFFFF",
-          py: { xs: 5, md: 8, lg: 10 },
+          py: { xs: 0, md: 8, lg: 10 },
           pt: { xs: 15, md: 20, lg: 20 },
           paddingLeft: { xs: "20px", md: "20px" },
           paddingRight: { xs: "20px", md: "20px" },
@@ -141,7 +141,7 @@ export default function About() {
             {/* Description */}
             <Typography
               sx={{
-                fontSize: "16px",
+                fontSize: { xs: "14px", md: "16px" },
                 color: "#333333",
                 lineHeight: 1.8,
                 maxWidth: { xs: "100%", md: "600px" },
@@ -354,7 +354,7 @@ export default function About() {
                 {/* Number */}
                 <Typography
                   sx={{
-                    fontSize: { xs: '48px', md: '56px' },
+                      fontSize: { xs: '45px', sm: '45px', md: '45px', lg: '56px' },
                     fontWeight: 700,
                     color: 'primary.main',
                     lineHeight: 1,
@@ -403,7 +403,7 @@ export default function About() {
                 {/* Number */}
                 <Typography
                   sx={{
-                    fontSize: { xs: '48px', md: '56px' },
+                    fontSize: { xs: '45px', sm: '45px', md: '45px', lg: '56px' },
                     fontWeight: 700,
                     color: 'primary.main',
                     lineHeight: 1,
@@ -452,7 +452,7 @@ export default function About() {
                 {/* Number */}
                 <Typography
                   sx={{
-                    fontSize: { xs: '48px', md: '56px' },
+                    fontSize: { xs: '45px', sm: '45px', md: '45px', lg: '56px' },
                     fontWeight: 700,
                     color: 'primary.main',
                     lineHeight: 1,
@@ -501,7 +501,7 @@ export default function About() {
                 {/* Number */}
                 <Typography
                   sx={{
-                    fontSize: { xs: '48px', md: '56px' },
+                    fontSize: { xs: '45px', sm: '45px', md: '45px', lg: '56px' },
                     fontWeight: 700,
                     color: 'primary.main',
                     lineHeight: 1,
