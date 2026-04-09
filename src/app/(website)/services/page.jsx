@@ -222,7 +222,7 @@ export default function page() {
                   flexDirection: "column",
                   alignItems: "flex-start",
                   justifyContent: "flex-start",
-                  minHeight: "320px",
+                  height: "100%",
                   transition: "all 0.3s ease",
                   animation: servicesInView
                     ? "fadeInUp 0.8s ease-out 0.1s both"
@@ -269,6 +269,7 @@ export default function page() {
                     color: "#666666",
                     lineHeight: 1.7,
                     fontWeight: 400,
+                    flexGrow: 1,
                   }}
                 >
                   Custom, responsive websites built with cutting-edge
@@ -290,7 +291,7 @@ export default function page() {
                   flexDirection: "column",
                   alignItems: "flex-start",
                   justifyContent: "flex-start",
-                  minHeight: "320px",
+                  height: "100%",
                   transition: "all 0.3s ease",
                   animation: servicesInView
                     ? "fadeInUp 0.8s ease-out 0.2s both"
@@ -337,6 +338,7 @@ export default function page() {
                     color: "rgba(255, 255, 255, 0.8)",
                     lineHeight: 1.7,
                     fontWeight: 400,
+                    flexGrow: 1,
                   }}
                 >
                   Beautiful, intuitive user interfaces and experiences that
@@ -357,7 +359,7 @@ export default function page() {
                   flexDirection: "column",
                   alignItems: "flex-start",
                   justifyContent: "flex-start",
-                  minHeight: "320px",
+                  height: "100%",
                   transition: "all 0.3s ease",
                   animation: servicesInView
                     ? "fadeInUp 0.8s ease-out 0.3s both"
@@ -406,6 +408,7 @@ export default function page() {
                     color: "#666666",
                     lineHeight: 1.7,
                     fontWeight: 400,
+                    flexGrow: 1,
                   }}
                 >
                   Complete e-commerce platforms with payment integration,
@@ -426,7 +429,7 @@ export default function page() {
                   flexDirection: "column",
                   alignItems: "flex-start",
                   justifyContent: "flex-start",
-                  minHeight: "320px",
+                  height: "100%",
                   transition: "all 0.3s ease",
                   animation: servicesInView
                     ? "fadeInUp 0.8s ease-out 0.4s both"
@@ -473,6 +476,7 @@ export default function page() {
                     color: "#666666",
                     lineHeight: 1.7,
                     fontWeight: 400,
+                    flexGrow: 1,
                   }}
                 >
                   Native and cross-platform mobile applications for iOS and
@@ -493,7 +497,7 @@ export default function page() {
                   flexDirection: "column",
                   alignItems: "flex-start",
                   justifyContent: "flex-start",
-                  minHeight: "320px",
+                  height: "100%",
                   transition: "all 0.3s ease",
                   animation: servicesInView
                     ? "fadeInUp 0.8s ease-out 0.5s both"
@@ -542,6 +546,7 @@ export default function page() {
                     color: "rgba(255, 255, 255, 0.8)",
                     lineHeight: 1.7,
                     fontWeight: 400,
+                    flexGrow: 1,
                   }}
                 >
                   Modern Point of Sale systems for retail and hospitality.
@@ -562,7 +567,7 @@ export default function page() {
                   flexDirection: "column",
                   alignItems: "flex-start",
                   justifyContent: "flex-start",
-                  minHeight: "320px",
+                  height: "100%",
                   transition: "all 0.3s ease",
                   animation: servicesInView
                     ? "fadeInUp 0.8s ease-out 0.6s both"
@@ -611,6 +616,7 @@ export default function page() {
                     color: "#666666",
                     lineHeight: 1.7,
                     fontWeight: 400,
+                    flexGrow: 1,
                   }}
                 >
                   Enterprise Resource Planning solutions that streamline your
