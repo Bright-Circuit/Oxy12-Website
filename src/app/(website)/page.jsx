@@ -11,6 +11,8 @@ import MonetizationOnIcon from '@mui/icons-material/MonetizationOn'
 import StarIcon from '@mui/icons-material/Star'
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight'
+import RocketIcon from '@mui/icons-material/Rocket';
+import ShieldIcon from '@mui/icons-material/Shield';
 
 // Custom hook for scroll animations
 const useInView = (ref, options = {}) => {
@@ -59,6 +61,7 @@ export default function page() {
 
   // Refs for scroll animations
   const featuresRef = useRef(null)
+  const whyChooseRef = useRef(null)
   const whoWeAreRef = useRef(null)
   const servicesRef = useRef(null)
   const ctaRef = useRef(null)
@@ -66,6 +69,7 @@ export default function page() {
 
   // Check if sections are in view
   const featuresInView = useInView(featuresRef)
+  const whyChooseInView = useInView(whyChooseRef)
   const whoWeAreInView = useInView(whoWeAreRef)
   const servicesInView = useInView(servicesRef)
   const ctaInView = useInView(ctaRef)
@@ -650,6 +654,7 @@ export default function page() {
         </Container>
       </Box>
 
+
       {/* Who We Are Section */}
       <Box
         ref={whoWeAreRef}
@@ -680,42 +685,17 @@ export default function page() {
                   animation: whoWeAreInView ? 'slideInLeft 0.8s ease-out' : 'none',
                 }}
               >
-                {/* Background gray box */}
-                <Box
-                  sx={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    backgroundColor: '#CCCCCC',
-                    borderRadius: '24px',
-                  }}
-                />
-
-                {/* Orange overlay element */}
-                <Box
-                  sx={{
-                    position: 'absolute',
-                    bottom: '30px',
-                    right: '30px',
-                    width: { xs: '180px', md: '220px' },
-                    height: { xs: '140px', md: '180px' },
-                    backgroundColor: 'primary.main',
-                    borderRadius: '20px',
-                  }}
-                />
+           
 
                 {/* Image - placeholder for user's image */}
                 <Box
                   component="img"
-                  src="/images/about-image.jpg"
+                  src="/images/about/about.jpg"
                   alt="About us"
                   sx={{
                     width: '100%',
                     height: '100%',
                     objectFit: 'cover',
-                    // display: 'none', // Hide until user provides image
                   }}
                 />
               </Box>
@@ -802,6 +782,303 @@ export default function page() {
                 >
                   Explore More
                 </Button>
+              </Box>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+
+      
+      {/* Why Choose OXY12 Section */}
+      <Box
+        ref={whyChooseRef}
+        sx={{
+          bgcolor: 'secondary.main',
+          padding: { xs: '60px 20px', md: '100px 20px' },
+          position: 'relative',
+          '@keyframes slideInUp': {
+            from: {
+              opacity: 0,
+              transform: 'translateY(50px)',
+            },
+            to: {
+              opacity: 1,
+              transform: 'translateY(0)',
+            },
+          },
+          '@keyframes scaleInUp': {
+            from: {
+              opacity: 0,
+              transform: 'scale(0.95) translateY(30px)',
+            },
+            to: {
+              opacity: 1,
+              transform: 'scale(1) translateY(0)',
+            },
+          },
+        }}
+      >
+        <Container maxWidth="lg">
+          {/* Section Header */}
+          <Box
+            sx={{
+              textAlign: 'center',
+              marginBottom: { xs: '60px', md: '80px' },
+              animation: whyChooseInView ? 'slideInUp 0.8s ease-out' : 'none',
+            }}
+          >
+            <Typography
+              variant="h2"
+              sx={{
+                fontSize: { xs: '32px', sm: '45px', md: '50px', lg: '60px' },
+                fontWeight: 700,
+                color: 'white',
+                lineHeight: 1.3,
+              }}
+            >
+              Why Choose OXY12
+            </Typography>
+          </Box>
+
+          {/* Cards Grid */}
+          <Grid container spacing={{ xs: 3, md: 4 }} alignItems="stretch">
+            {/* Card 1 - Innovative Solutions */}
+            <Grid item xs={12} sm={6} md={4}>
+              <Box
+                sx={{
+                  background: 'transparent',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  borderRadius: '16px',
+                  padding: { xs: '40px 30px', md: '30px 35px' },
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                  animation: whyChooseInView ? 'scaleInUp 0.8s ease-out 0.1s both' : 'none',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  '&:before': {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: '-100%',
+                    width: '100%',
+                    height: '100%',
+                    background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent)',
+                    transition: 'left 0.6s ease-out',
+                  },
+                  '&:hover': {
+                    border: '1px solid rgba(255, 255, 255, 0.4)',
+                    boxShadow: '0 8px 32px rgba(0, 200, 255, 0.15)',
+                    transform: 'translateY(-8px)',
+                    '&:before': {
+                      left: '100%',
+                    },
+                  },
+                }}
+              >
+                {/* Icon Container */}
+                <Box
+                  sx={{
+                    width: { xs: '50px', md: '60px' },
+                    height: { xs: '50px', md: '60px' },
+                    backgroundColor: '#fff',
+                    borderRadius: '12px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: { xs: '24px', md: '30px' },
+                  }}
+                >
+                  <Box
+                    sx={{
+                      fontSize: { xs: '40px', md: '48px' },
+                      color: 'primary.main',
+                    }}
+                  >
+                    <RocketIcon sx={{ fontSize: { xs: '30px', md: '30px' } }} />
+                  </Box>
+                </Box>
+
+                {/* Content */}
+                <Box>
+                  <Typography
+                    sx={{
+                      fontSize: { xs: '20px', md: '24px' },
+                      fontWeight: 700,
+                      color: 'white',
+                      marginBottom: '16px',
+                    }}
+                  >
+                    Innovative Solutions
+                  </Typography>
+
+                  <Typography
+                    sx={{
+                      fontSize: { xs: '14px', md: '15px' },
+                      color: 'rgba(255, 255, 255, 0.75)',
+                      lineHeight: 1.7,
+                      fontWeight: 400,
+                    }}
+                  >
+                    We leverage cutting-edge technologies to deliver solutions that set industry standards.
+                  </Typography>
+                </Box>
+              </Box>
+            </Grid>
+
+            {/* Card 2 - Quality & Security (Featured) */}
+            <Grid item xs={12} sm={6} md={4}>
+              <Box
+                sx={{
+                  background: '#fff',
+                  borderRadius: '16px',
+                  padding: { xs: '40px 30px', md: '30px 35px' },
+                  // minHeight: { xs: '300px', md: '350px' },
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                  animation: whyChooseInView ? 'scaleInUp 0.8s ease-out 0.2s both' : 'none',
+                  boxShadow: '0 20px 60px rgba(0, 26, 77, 0.3)',
+                  transform: { xs: 'translateY(0)', md: 'translateY(-20px)' },
+                  position: 'relative',
+                  '&:hover': {
+                    transform: { xs: 'translateY(-8px)', md: 'translateY(-28px)' },
+                    boxShadow: '0 30px 80px rgba(0, 26, 77, 0.4)',
+                  },
+                }}
+              >
+                {/* Icon Container */}
+                <Box
+                  sx={{
+                    width: { xs: '50px', md: '60px' },
+                    height: { xs: '50px', md: '60px' },
+                    backgroundColor: 'primary.main',
+                    borderRadius: '12px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: { xs: '24px', md: '32px' },
+                  }}
+                >
+                  <Box
+                    sx={{
+                      color: '#fff',
+                    }}
+                  >
+                    <ShieldIcon sx={{ fontSize: { xs: '30px', md: '30px' } }} />
+                  </Box>
+                </Box>
+
+                {/* Content */}
+                <Box>
+                  <Typography
+                    sx={{
+                      fontSize: { xs: '20px', md: '24px' },
+                      fontWeight: 700,
+                      color: '#001a4d',
+                      marginBottom: '16px',
+                    }}
+                  >
+                    Quality & Security
+                  </Typography>
+
+                  <Typography
+                    sx={{
+                      fontSize: { xs: '14px', md: '15px' },
+                      color: '#666666',
+                      lineHeight: 1.7,
+                      fontWeight: 400,
+                    }}
+                  >
+                    Your data security and product quality are our top priorities. We follow industry best practices.
+                  </Typography>
+                </Box>
+              </Box>
+            </Grid>
+
+            {/* Card 3 - Business Growth */}
+            <Grid item xs={12} sm={6} md={4}>
+              <Box
+                sx={{
+                  background: 'transparent',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  borderRadius: '16px',
+                  padding: { xs: '40px 30px', md: '30px 35px' },
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                  animation: whyChooseInView ? 'scaleInUp 0.8s ease-out 0.3s both' : 'none',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  '&:before': {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: '-100%',
+                    width: '100%',
+                    height: '100%',
+                    background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent)',
+                    transition: 'left 0.6s ease-out',
+                  },
+                  '&:hover': {
+                    border: '1px solid rgba(255, 255, 255, 0.4)',
+                    boxShadow: '0 8px 32px rgba(76, 200, 100, 0.15)',
+                    transform: 'translateY(-8px)',
+                    '&:before': {
+                      left: '100%',
+                    },
+                  },
+                }}
+              >
+                {/* Icon Container */}
+                <Box
+                  sx={{
+                    width: { xs: '50px', md: '60px' },
+                    height: { xs: '50px', md: '60px' },
+                    backgroundColor: '#ffff',
+                    borderRadius: '12px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: { xs: '24px', md: '32px' },
+                  }}
+                >
+                  <Box
+                    sx={{
+                      color: 'primary.main',
+                    }}
+                  >
+                    <TrendingUpIcon sx={{ fontSize: { xs: '30px', md: '30px' } }} />
+                  </Box>
+                </Box>
+
+                {/* Content */}
+                <Box>
+                  <Typography
+                    sx={{
+                      fontSize: { xs: '20px', md: '24px' },
+                      fontWeight: 700,
+                      color: 'white',
+                      marginBottom: '16px',
+                    }}
+                  >
+                    Business Growth
+                  </Typography>
+
+                  <Typography
+                    sx={{
+                      fontSize: { xs: '14px', md: '15px' },
+                      color: 'rgba(255, 255, 255, 0.75)',
+                      lineHeight: 1.7,
+                      fontWeight: 400,
+                    }}
+                  >
+                    We focus on scalable solutions that grow with your business and drive measurable results.
+                  </Typography>
+                </Box>
               </Box>
             </Grid>
           </Grid>
