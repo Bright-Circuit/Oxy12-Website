@@ -41,6 +41,19 @@ const useInView = (ref, options = {}) => {
   return isInView
 }
 
+//Navigate services page
+const handleClickServices = () => {
+  window.location.href = '/services'
+}
+
+const handleClickExploreMore = () => {
+  window.location.href = '/about'
+}
+
+const handleClickGetStarted = () => {
+  window.location.href = '/contact'
+}
+
 export default function page() {
   const [currentIndex, setCurrentIndex] = useState(1)
 
@@ -298,6 +311,7 @@ export default function page() {
               }}
             >
               <Button
+              onClick={handleClickGetStarted}
                 variant="contained"
                 sx={{
                   padding: { xs: '12px 20px', sm: '12px 40px', md: '12px 40px' },
@@ -321,6 +335,7 @@ export default function page() {
               </Button>
 
               <Button
+              onClick={handleClickExploreMore}
                 variant="outlined"
                 sx={{
                   padding: { xs: '10px 20px', sm: '12px 40px', md: '12px 40px' },
@@ -768,6 +783,7 @@ export default function page() {
 
                 {/* Explore More Button */}
                 <Button
+                onClick={handleClickExploreMore}
                   sx={{
                     padding: '12px 40px',
                     fontSize: '16px',
@@ -845,6 +861,7 @@ export default function page() {
 
               {/* See All Services Button */}
               <Button
+              onClick={handleClickServices}
                 sx={{
                   padding: '12px 32px',
                   fontSize: '16px',
@@ -1123,6 +1140,7 @@ export default function page() {
 
             {/* CTA Button */}
             <Button
+            onClick={handleClickGetStarted}
               sx={{
                 padding: '12px 48px',
                 fontSize: '16px',

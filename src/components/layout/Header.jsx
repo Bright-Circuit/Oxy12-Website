@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import { usePathname } from 'next/navigation'
 import {
   AppBar,
   Toolbar,
@@ -21,6 +22,7 @@ import Link from 'next/link'
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const pathname = usePathname()
 
   const navItems = [
     { label: 'Home', href: '/' },
@@ -38,10 +40,15 @@ export default function Header() {
       <Box
         sx={{
           display: 'flex',
-          justifyContent: 'flex-end',
+          justifyContent: 'space-between',
           padding: '10px 15px',
         }}
       >
+        <Link href="/">
+              <Box sx={{ cursor: 'pointer' }}>
+                <img src="/images/logo/logo.png" alt="OXY12 Logo" style={{ height: '50px' }} />
+              </Box>
+            </Link>
         <IconButton onClick={handleDrawerToggle}>
           <CloseIcon />
         </IconButton>
@@ -54,9 +61,10 @@ export default function Header() {
               href={item.href}
               onClick={handleDrawerToggle}
               sx={{
-                color: '#000',
+                color: pathname === item.href ? 'primary.main' : '#000',
+                backgroundColor: pathname === item.href ? 'rgba(250, 131, 43, 0.1)' : 'transparent',
                 '&:hover': {
-                  backgroundColor: '#f5f5f5',
+                  backgroundColor: pathname === item.href ? 'rgba(250, 131, 43, 0.15)' : '#f5f5f5',
                   color: 'primary.main',
                 },
               }}
@@ -65,7 +73,7 @@ export default function Header() {
                 primary={item.label}
                 sx={{
                   '& .MuiTypography-root': {
-                    fontWeight: 500,
+                    fontWeight: pathname === item.href ? 500 : 500,
                     fontSize: '16px',
                   },
                 }}
@@ -118,9 +126,11 @@ export default function Header() {
             }}
           >
             {/* Logo */}
-            <Box>
-              <img src="/images/logo/logo.png" alt="OXY12 Logo" style={{ height: '50px' }} />
-            </Box>
+            <Link href="/">
+              <Box sx={{ cursor: 'pointer' }}>
+                <img src="/images/logo/logo.png" alt="OXY12 Logo" style={{ height: '50px' }} />
+              </Box>
+            </Link>
 
             {/* Navigation Items - Desktop Only */}
             <Box
@@ -137,7 +147,7 @@ export default function Header() {
                   component={Link}
                   href={item.href}
                   sx={{
-                    color: '#000',
+                    color: pathname === item.href ? 'primary.main' : '#000',
                     textTransform: 'none',
                     fontSize: '16px',
                     fontWeight: 500,
@@ -152,13 +162,14 @@ export default function Header() {
                       position: 'absolute',
                       bottom: '-5px',
                       left: 0,
-                      width: '0%',
+                      width: pathname === item.href ? '100%' : '0%',
                       height: '2px',
-                      backgroundColor: 'primary.main',
+                      // backgroundColor: 'primary.main',
                       transition: 'width 0.3s ease',
                     },
                     '&:hover::after': {
                       width: '100%',
+                       backgroundColor: 'primary.main',
                     },
                   }}
                 >
