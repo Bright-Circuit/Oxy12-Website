@@ -60,6 +60,7 @@
     "redux-persist": "^6.0.0",
     "regenerator-runtime": "^0.14.1",
     "sockjs-client": "^1.6.1",
+    "swiper": "^12.1.4",
     "tsparticles-engine": "^2.12.0",
     "tsparticles-slim": "^2.12.0",
     "whatwg-fetch": "^3.6.20",

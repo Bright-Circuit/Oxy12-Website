@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from "react";
 import {
   Box,
   Container,
@@ -8,59 +8,58 @@ import {
   TextField,
   Button,
   Grid,
-} from '@mui/material';
-import {
-  Phone,
-  Email,
-  Public,
-  Send,
-} from '@mui/icons-material';
+  Link,
+} from "@mui/material";
+import { Phone, Email, Public, Send } from "@mui/icons-material";
 
 // Custom hook for scroll animations
 const useInView = (ref, options = {}) => {
-  const [isInView, setIsInView] = useState(false)
+  const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsInView(true)
-        observer.unobserve(entry.target)
-      }
-    }, {
-      threshold: 0.1,
-      ...options,
-    })
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.1,
+        ...options,
+      },
+    );
 
     if (ref.current) {
-      observer.observe(ref.current)
+      observer.observe(ref.current);
     }
 
     return () => {
       if (ref.current) {
-        observer.unobserve(ref.current)
+        observer.unobserve(ref.current);
       }
-    }
-  }, [ref, options])
+    };
+  }, [ref, options]);
 
-  return isInView
-}
+  return isInView;
+};
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   });
 
   const [submitted, setSubmitted] = useState(false);
 
   // Refs for scroll animations
-  const heroRef = useRef(null)
-  const formSectionRef = useRef(null)
+  const heroRef = useRef(null);
+  const formSectionRef = useRef(null);
 
   // Check if sections are in view
-  const heroInView = useInView(heroRef)
-  const formSectionInView = useInView(formSectionRef)
+  const heroInView = useInView(heroRef);
+  const formSectionInView = useInView(formSectionRef);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -72,174 +71,180 @@ export default function ContactPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: "", email: "", message: "" });
     }, 3000);
   };
 
   return (
     <>
       {/* Hero Section */}
-    <Box
-      ref={heroRef}
-      sx={{
-        backgroundColor: '#ffffff',
-        padding: { xs: '60px 15px', sm: '100px 20px', md: '20px 20px' },
-        minHeight: { xs: '500px', sm: '700px', md: '750px' },
-        pt: { xs: '150px', sm: '80px', md: '100px' },
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        position: 'relative',
-        '@keyframes fadeInUp': {
-          from: { opacity: 0, transform: 'translateY(30px)' },
-          to: { opacity: 1, transform: 'translateY(0)' },
-        },
-      }}
-    >
-      <Container maxWidth="lg">
-        <Box
-          sx={{
-            textAlign: 'center',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            animation: heroInView ? 'fadeInUp 0.8s ease-out' : 'none'
-          }}
-        >
-          {/* "Connect With Us" Label */}
-          <Typography
-            sx={{
-              fontSize: { xs: '16px', md: '18px' },
-              fontWeight: 600,
-              color: 'primary.main',
-              marginBottom: { xs: '20px', md: '30px' },
-              letterSpacing: '0.5px',
-              // textTransform: 'uppercase',
-            }}
-          >
-            Connect With Us
-          </Typography>
-
-          {/* Main Heading - Part 1 */}
-          <Typography
-            sx={{
-              fontSize: { xs: '36px', sm: '62px', md: '75px', lg: '75px' },
-              fontWeight: 700,
-              color: '#000000',
-              lineHeight: 1.2,
-            }}
-          >
-            Let's Build <br></br> Something
-          </Typography>
-
-          {/* Main Heading - Part 2 */}
+      <Box
+        ref={heroRef}
+        sx={{
+          backgroundColor: "#ffffff",
+          padding: { xs: "60px 15px", sm: "100px 20px", md: "20px 20px" },
+          minHeight: { xs: "500px", sm: "700px", md: "750px" },
+          pt: { xs: "150px", sm: "80px", md: "100px" },
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          position: "relative",
+          "@keyframes fadeInUp": {
+            from: { opacity: 0, transform: "translateY(30px)" },
+            to: { opacity: 1, transform: "translateY(0)" },
+          },
+        }}
+      >
+        <Container maxWidth="lg">
           <Box
             sx={{
-              display: 'flex',
-              flexDirection: { xs: 'column', md: 'column' },
-              justifyContent: 'center',
-              alignItems: 'center',
-              flexWrap: 'wrap',
-              marginBottom: { xs: '30px', md: '40px' },
+              textAlign: "center",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              animation: heroInView ? "fadeInUp 0.8s ease-out" : "none",
             }}
           >
+            {/* "Connect With Us" Label */}
             <Typography
               sx={{
-                fontSize: { xs: '36px', sm: '50px', md: '72px' },
+                fontSize: { xs: "16px", md: "18px" },
+                fontWeight: 600,
+                color: "primary.main",
+                marginBottom: { xs: "20px", md: "30px" },
+                letterSpacing: "0.5px",
+                // textTransform: 'uppercase',
+              }}
+            >
+              Connect With Us
+            </Typography>
+
+            {/* Main Heading - Part 1 */}
+            <Typography
+              sx={{
+                fontSize: { xs: "36px", sm: "62px", md: "75px", lg: "75px" },
                 fontWeight: 700,
-                color: 'primary.main',
+                color: "#000000",
                 lineHeight: 1.2,
               }}
             >
-              Extraordinary
+              Let's Build <br></br> Something
             </Typography>
-            <Typography
+
+            {/* Main Heading - Part 2 */}
+            <Box
               sx={{
-                fontSize: { xs: '36px', sm: '50px', md: '72px' },
-                fontWeight: 700,
-                color: '#000000',
-                lineHeight: 1.1,
+                display: "flex",
+                flexDirection: { xs: "column", md: "column" },
+                justifyContent: "center",
+                alignItems: "center",
+                flexWrap: "wrap",
+                marginBottom: { xs: "30px", md: "40px" },
               }}
             >
-              Together
+              <Typography
+                sx={{
+                  fontSize: { xs: "36px", sm: "50px", md: "72px" },
+                  fontWeight: 700,
+                  color: "primary.main",
+                  lineHeight: 1.2,
+                }}
+              >
+                Extraordinary
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: { xs: "36px", sm: "50px", md: "72px" },
+                  fontWeight: 700,
+                  color: "#000000",
+                  lineHeight: 1.1,
+                }}
+              >
+                Together
+              </Typography>
+            </Box>
+
+            {/* Description */}
+            <Typography
+              sx={{
+                fontSize: { xs: "16px", sm: "18px", md: "18px" },
+                color: "#333333",
+                lineHeight: 1.8,
+                maxWidth: { xs: "100%", sm: "600px", md: "750px" },
+                fontWeight: 400,
+              }}
+            >
+              We believe in curation over automation. Share your vision and
+              let's craft a digital experience that moves at the speed of your
+              ambition.
             </Typography>
           </Box>
-
-          {/* Description */}
-          <Typography
-            sx={{
-              fontSize: { xs: '16px', sm: '18px', md: '18px' },
-              color: '#333333',
-              lineHeight: 1.8,
-              maxWidth: { xs: '100%', sm: '600px', md: '750px' },
-              fontWeight: 400,
-            }}
-          >
-            We believe in curation over automation. Share your vision and let's
-            craft a digital experience that moves at the speed of your ambition.
-          </Typography>
-        </Box>
-      </Container>
-    </Box>
+        </Container>
+      </Box>
 
       {/* Contact Form & Details Section */}
       <Box
         ref={formSectionRef}
         sx={{
-          backgroundColor: '#ffffff',
-          padding: { xs: '20px 15px', sm: '20px 20px', md: '50px 20px' },
-          '@keyframes fadeInUp': {
-            from: { opacity: 0, transform: 'translateY(30px)' },
-            to: { opacity: 1, transform: 'translateY(0)' },
+          backgroundColor: "#ffffff",
+          padding: { xs: "20px 15px", sm: "20px 20px", md: "50px 20px" },
+          "@keyframes fadeInUp": {
+            from: { opacity: 0, transform: "translateY(30px)" },
+            to: { opacity: 1, transform: "translateY(0)" },
           },
         }}
       >
         <Container maxWidth="lg">
-          <Grid
-            container
-            spacing={{ xs: 4, md: 6 }}
-            alignItems="flex-start"
-          >
+          <Grid container spacing={{ xs: 4, md: 6 }} alignItems="flex-start">
             {/* Left - Inquiry Form */}
             <Grid item xs={12} md={6}>
-              <Box sx={{bgcolor: '#fff',
-                boxShadow: '0 12px 40px rgba(30, 34, 42, 0.08)',
-                borderRadius: '16px',
-                padding: { xs: '40px 30px', md: '50px' },
-                display: 'flex',
-                flexDirection: 'column',
-                animation: formSectionInView ? 'fadeInUp 0.8s ease-out 0.1s both' : 'none',
-                transition: 'all 0.3s ease',
-                '&:hover': {
-                  boxShadow: '0 16px 50px rgba(0, 0, 0, 0.12)',
-                  transform: 'translateY(-4px)',
-                },
-              }}>
+              <Box
+                sx={{
+                  bgcolor: "#fff",
+                  boxShadow: "0 12px 40px rgba(30, 34, 42, 0.08)",
+                  borderRadius: "16px",
+                  padding: { xs: "40px 30px", md: "50px" },
+                  display: "flex",
+                  flexDirection: "column",
+                  animation: formSectionInView
+                    ? "fadeInUp 0.8s ease-out 0.1s both"
+                    : "none",
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    boxShadow: "0 16px 50px rgba(0, 0, 0, 0.12)",
+                    transform: "translateY(-4px)",
+                  },
+                }}
+              >
                 <Typography
                   sx={{
-                    fontSize: { xs: '28px', md: '36px' },
+                    fontSize: { xs: "28px", md: "36px" },
                     fontWeight: 700,
-                    color: '#000000',
-                    marginBottom: '40px',
+                    color: "#000000",
+                    marginBottom: "40px",
                   }}
                 >
                   Inquiry Form
                 </Typography>
 
-                <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                <Box
+                  component="form"
+                  onSubmit={handleSubmit}
+                  sx={{ display: "flex", flexDirection: "column", gap: "20px" }}
+                >
                   {/* Name Field */}
                   <Box>
                     <Typography
                       sx={{
-                        fontSize: '14px',
+                        fontSize: "14px",
                         fontWeight: 600,
-                        color: '#000000',
-                        marginBottom: '8px',
+                        color: "#000000",
+                        marginBottom: "8px",
                       }}
                     >
                       Name
@@ -253,22 +258,22 @@ export default function ContactPage() {
                       variant="outlined"
                       placeholder="Your Name"
                       sx={{
-                        '& .MuiOutlinedInput-root': {
-                          borderRadius: '8px',
-                          backgroundColor: '#F5F5F5',
-                          height: '50px',
-                          '& fieldset': {
-                            border: 'none',
+                        "& .MuiOutlinedInput-root": {
+                          borderRadius: "8px",
+                          backgroundColor: "#F5F5F5",
+                          height: "50px",
+                          "& fieldset": {
+                            border: "none",
                           },
-                          '&:hover fieldset': {
-                            border: 'none',
+                          "&:hover fieldset": {
+                            border: "none",
                           },
-                          '&.Mui-focused fieldset': {
-                            border: 'none',
+                          "&.Mui-focused fieldset": {
+                            border: "none",
                           },
                         },
-                        '& .MuiOutlinedInput-input::placeholder': {
-                          color: '#999999',
+                        "& .MuiOutlinedInput-input::placeholder": {
+                          color: "#999999",
                           opacity: 1,
                         },
                       }}
@@ -279,10 +284,10 @@ export default function ContactPage() {
                   <Box>
                     <Typography
                       sx={{
-                        fontSize: '14px',
+                        fontSize: "14px",
                         fontWeight: 600,
-                        color: '#000000',
-                        marginBottom: '8px',
+                        color: "#000000",
+                        marginBottom: "8px",
                       }}
                     >
                       Email Address
@@ -297,22 +302,22 @@ export default function ContactPage() {
                       variant="outlined"
                       placeholder="Your Email"
                       sx={{
-                        '& .MuiOutlinedInput-root': {
-                          borderRadius: '8px',
-                          backgroundColor: '#F5F5F5',
-                          height: '50px',
-                          '& fieldset': {
-                            border: 'none',
+                        "& .MuiOutlinedInput-root": {
+                          borderRadius: "8px",
+                          backgroundColor: "#F5F5F5",
+                          height: "50px",
+                          "& fieldset": {
+                            border: "none",
                           },
-                          '&:hover fieldset': {
-                            border: 'none',
+                          "&:hover fieldset": {
+                            border: "none",
                           },
-                          '&.Mui-focused fieldset': {
-                            border: 'none',
+                          "&.Mui-focused fieldset": {
+                            border: "none",
                           },
                         },
-                        '& .MuiOutlinedInput-input::placeholder': {
-                          color: '#999999',
+                        "& .MuiOutlinedInput-input::placeholder": {
+                          color: "#999999",
                           opacity: 1,
                         },
                       }}
@@ -323,10 +328,10 @@ export default function ContactPage() {
                   <Box>
                     <Typography
                       sx={{
-                        fontSize: '14px',
+                        fontSize: "14px",
                         fontWeight: 600,
-                        color: '#000000',
-                        marginBottom: '8px',
+                        color: "#000000",
+                        marginBottom: "8px",
                       }}
                     >
                       Message
@@ -342,21 +347,21 @@ export default function ContactPage() {
                       variant="outlined"
                       placeholder="Your Message"
                       sx={{
-                        '& .MuiOutlinedInput-root': {
-                          borderRadius: '8px',
-                          backgroundColor: '#F5F5F5',
-                          '& fieldset': {
-                            border: 'none',
+                        "& .MuiOutlinedInput-root": {
+                          borderRadius: "8px",
+                          backgroundColor: "#F5F5F5",
+                          "& fieldset": {
+                            border: "none",
                           },
-                          '&:hover fieldset': {
-                            border: 'none',
+                          "&:hover fieldset": {
+                            border: "none",
                           },
-                          '&.Mui-focused fieldset': {
-                            border: 'none',
+                          "&.Mui-focused fieldset": {
+                            border: "none",
                           },
                         },
-                        '& .MuiOutlinedInput-input::placeholder': {
-                          color: '#999999',
+                        "& .MuiOutlinedInput-input::placeholder": {
+                          color: "#999999",
                           opacity: 1,
                         },
                       }}
@@ -368,28 +373,28 @@ export default function ContactPage() {
                     type="submit"
                     variant="contained"
                     sx={{
-                      width: { xs: '100%', sm: '220px' },
-                      padding: '12px 32px',
-                      fontSize: '16px',
+                      width: { xs: "100%", sm: "220px" },
+                      padding: "12px 32px",
+                      fontSize: "16px",
                       fontWeight: 600,
-                      backgroundColor: 'primary.main',
-                      color: 'white',
-                      borderRadius: '10px',
-                      textTransform: 'none',
-                      transition: 'all 0.3s ease',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: '8px',
-                      '&:hover': {
-                        backgroundColor: 'primary.main',
-                        transform: 'translateY(-2px)',
-                        boxShadow: '0 8px 16px rgba(255, 122, 61, 0.3)',
+                      backgroundColor: "primary.main",
+                      color: "white",
+                      borderRadius: "10px",
+                      textTransform: "none",
+                      transition: "all 0.3s ease",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: "8px",
+                      "&:hover": {
+                        backgroundColor: "primary.main",
+                        transform: "translateY(-2px)",
+                        boxShadow: "0 8px 16px rgba(255, 122, 61, 0.3)",
                       },
                     }}
                   >
-                    {submitted ? 'Message Sent!' : 'Send Message'}
-                    <Send sx={{ fontSize: '18px' }} />
+                    {submitted ? "Message Sent!" : "Send Message"}
+                    <Send sx={{ fontSize: "18px" }} />
                   </Button>
                 </Box>
               </Box>
@@ -399,150 +404,189 @@ export default function ContactPage() {
             <Grid item xs={12} md={6}>
               <Box
                 sx={{
-                  backgroundColor: 'secondary.main',
-                  borderRadius: '16px',
-                  padding: { xs: '40px 30px', md: '50px' },
-                  minHeight: { xs: 'auto', md: '500px' },
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'flex-start',
-                  animation: formSectionInView ? 'fadeInUp 0.8s ease-out 0.2s both' : 'none',
-                  transition: 'all 0.3s ease',
-                  '&:hover': {
-                    boxShadow: '0 16px 50px rgba(0, 7, 43, 0.25)',
-                    transform: 'translateY(-4px)',
+                  backgroundColor: "secondary.main",
+                  borderRadius: "16px",
+                  padding: { xs: "40px 30px", md: "50px" },
+                  minHeight: { xs: "auto", md: "500px" },
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "flex-start",
+                  animation: formSectionInView
+                    ? "fadeInUp 0.8s ease-out 0.2s both"
+                    : "none",
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    boxShadow: "0 16px 50px rgba(0, 7, 43, 0.25)",
+                    transform: "translateY(-4px)",
                   },
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: { xs: '28px', md: '32px' },
+                    fontSize: { xs: "28px", md: "32px" },
                     fontWeight: 700,
-                    color: '#ffffff',
-                    marginBottom: { xs: '40px', md: '60px' },
+                    color: "#ffffff",
+                    marginBottom: { xs: "40px", md: "60px" },
                   }}
                 >
                   Reach out Directly
                 </Typography>
 
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: { xs: '30px', md: '40px' } }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: { xs: "30px", md: "40px" },
+                  }}
+                >
                   {/* Phone */}
-                  <Box sx={{ display: 'flex', gap: '20px', alignItems: 'flex-start' }}>
+                  <Link href="tel:+94711950429" sx={{ textDecoration: "none" }}>
                     <Box
                       sx={{
-                        width: '60px',
-                        height: '60px',
-                        borderRadius: '50%',
-                        backgroundColor: 'primary.main',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexShrink: 0,
+                        display: "flex",
+                        gap: "20px",
+                        alignItems: "flex-start",
                       }}
                     >
-                      <Phone sx={{ fontSize: '28px', color: 'white' }} />
-                    </Box>
-                    <Box>
-                      <Typography
+                      <Box
                         sx={{
-                          fontSize: '16px',
-                          fontWeight: 600,
-                          color: '#ffffff',
-                          marginBottom: '4px',
+                          width: "60px",
+                          height: "60px",
+                          borderRadius: "50%",
+                          backgroundColor: "primary.main",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          flexShrink: 0,
                         }}
                       >
-                        Phone
-                      </Typography>
-                      <Typography
-                        sx={{
-                          fontSize: '16px',
-                          color: 'rgba(255, 255, 255, 0.8)',
-                          fontWeight: 400,
-                        }}
-                      >
-                        071 195 0429
-                      </Typography>
+                        <Phone sx={{ fontSize: "28px", color: "white" }} />
+                      </Box>
+                      <Box>
+                        <Typography
+                          sx={{
+                            fontSize: "16px",
+                            fontWeight: 600,
+                            color: "#ffffff",
+                            marginBottom: "4px",
+                          }}
+                        >
+                          Phone
+                        </Typography>
+                        <Typography
+                          sx={{
+                            fontSize: "16px",
+                            color: "rgba(255, 255, 255, 0.8)",
+                            fontWeight: 400,
+                          }}
+                        >
+                          +94 71 195 0429
+                        </Typography>
+                      </Box>
                     </Box>
-                  </Box>
+                  </Link>
 
                   {/* Email */}
-                  <Box sx={{ display: 'flex', gap: '20px', alignItems: 'flex-start' }}>
+                  <Link
+                    href="mailto:oxy2welve@gmail.com"
+                    sx={{ textDecoration: "none" }}
+                  >
                     <Box
                       sx={{
-                        width: '60px',
-                        height: '60px',
-                        borderRadius: '50%',
-                        backgroundColor: 'primary.main',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexShrink: 0,
+                        display: "flex",
+                        gap: "20px",
+                        alignItems: "flex-start",
                       }}
                     >
-                      <Email sx={{ fontSize: '28px', color: 'white' }} />
-                    </Box>
-                    <Box>
-                      <Typography
+                      <Box
                         sx={{
-                          fontSize: '16px',
-                          fontWeight: 600,
-                          color: '#ffffff',
-                          marginBottom: '4px',
+                          width: "60px",
+                          height: "60px",
+                          borderRadius: "50%",
+                          backgroundColor: "primary.main",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          flexShrink: 0,
                         }}
                       >
-                        Email Address
-                      </Typography>
-                      <Typography
-                        sx={{
-                          fontSize: '16px',
-                          color: 'rgba(255, 255, 255, 0.8)',
-                          fontWeight: 400,
-                          wordBreak: 'break-all',
-                        }}
-                      >
-                        oxy2welve@gmail.com
-                      </Typography>
+                        <Email sx={{ fontSize: "28px", color: "white" }} />
+                      </Box>
+                      <Box>
+                        <Typography
+                          sx={{
+                            fontSize: "16px",
+                            fontWeight: 600,
+                            color: "#ffffff",
+                            marginBottom: "4px",
+                          }}
+                        >
+                          Email Address
+                        </Typography>
+                        <Typography
+                          sx={{
+                            fontSize: "16px",
+                            color: "rgba(255, 255, 255, 0.8)",
+                            fontWeight: 400,
+                            wordBreak: "break-all",
+                          }}
+                        >
+                          oxy2welve@gmail.com
+                        </Typography>
+                      </Box>
                     </Box>
-                  </Box>
+                  </Link>
 
                   {/* Website */}
-                  <Box sx={{ display: 'flex', gap: '20px', alignItems: 'flex-start' }}>
+                  <Link
+                    href="https://www.oxy12.com"
+                    target="_blank"
+                    sx={{ textDecoration: "none" }}
+                  >
                     <Box
                       sx={{
-                        width: '60px',
-                        height: '60px',
-                        borderRadius: '50%',
-                        backgroundColor: 'primary.main',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexShrink: 0,
+                        display: "flex",
+                        gap: "20px",
+                        alignItems: "flex-start",
                       }}
                     >
-                      <Public sx={{ fontSize: '28px', color: 'white' }} />
-                    </Box>
-                    <Box>
-                      <Typography
+                      <Box
                         sx={{
-                          fontSize: '16px',
-                          fontWeight: 600,
-                          color: '#ffffff',
-                          marginBottom: '4px',
+                          width: "60px",
+                          height: "60px",
+                          borderRadius: "50%",
+                          backgroundColor: "primary.main",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          flexShrink: 0,
                         }}
                       >
-                        Website
-                      </Typography>
-                      <Typography
-                        sx={{
-                          fontSize: '16px',
-                          color: 'rgba(255, 255, 255, 0.8)',
-                          fontWeight: 400,
-                        }}
-                      >
-                        www.oxy12.com
-                      </Typography>
+                        <Public sx={{ fontSize: "28px", color: "white" }} />
+                      </Box>
+                      <Box>
+                        <Typography
+                          sx={{
+                            fontSize: "16px",
+                            fontWeight: 600,
+                            color: "#ffffff",
+                            marginBottom: "4px",
+                          }}
+                        >
+                          Website
+                        </Typography>
+                        <Typography
+                          sx={{
+                            fontSize: "16px",
+                            color: "rgba(255, 255, 255, 0.8)",
+                            fontWeight: 400,
+                          }}
+                        >
+                          www.oxy12.com
+                        </Typography>
+                      </Box>
                     </Box>
-                  </Box>
+                  </Link>
                 </Box>
               </Box>
             </Grid>

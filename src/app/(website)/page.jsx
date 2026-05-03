@@ -93,9 +93,9 @@ export default function page() {
       id: 1,
       rating: 5.0,
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut",
-      author: "Test 1",
-      title: "CEO at ABC",
-      avatar: "/images/avatar-1.jpg",
+      author: "Mr. Kevin",
+      title: "Northspire Education",
+      avatar: "/images/testimonials/logo1.png",
     },
     {
       id: 2,
@@ -1567,7 +1567,8 @@ export default function page() {
           },
         }}
       >
-        <Container maxWidth="xl">
+        {/* Testimonials Carousal */}
+           <Container maxWidth="xl">
           {/* Section Header */}
           <Box
             sx={{

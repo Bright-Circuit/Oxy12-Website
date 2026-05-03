@@ -1,77 +1,87 @@
-import React from 'react'
-import { Box, Container, Typography, Grid, Link, Divider } from '@mui/material'
-import PhoneIcon from '@mui/icons-material/Phone'
-import EmailIcon from '@mui/icons-material/Email'
-import FacebookIcon from '@mui/icons-material/Facebook'
-import LinkedInIcon from '@mui/icons-material/LinkedIn'
-import GitHubIcon from '@mui/icons-material/GitHub'
+import React from "react";
+import { Box, Container, Typography, Grid, Link, Divider } from "@mui/material";
+import PhoneIcon from "@mui/icons-material/Phone";
+import EmailIcon from "@mui/icons-material/Email";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import InstagramIcon from "@mui/icons-material/Instagram";
 
 export default function Footer() {
   const companyLinks = [
-    { label: 'Home', href: '/' },
-    { label: 'About Us', href: '/about' },
-    { label: 'Services', href: '/services' },
-    { label: 'Portfolio', href: '/portfolio' },
-  ]
+    { label: "Home", href: "/" },
+    { label: "About Us", href: "/about" },
+    { label: "Services", href: "/services" },
+    { label: "Portfolio", href: "/portfolio" },
+  ];
 
   const serviceLinks = [
-    { label: 'Web Development', href: '#' },
-    { label: 'Mobile App Development', href: '#' },
-    { label: 'E-Commerce Solutions', href: '#' },
-    { label: 'UI/UX Designs', href: '#' },
-    { label: 'POS Systems', href: '#' },
-    { label: 'ERP Systems', href: '#' },
-  ]
+    { label: "Web Development", href: "/services" },
+    { label: "Mobile App Development", href: "/services" },
+    { label: "E-Commerce Solutions", href: "/services" },
+    { label: "UI/UX Designs", href: "/services" },
+    { label: "POS Systems", href: "/services" },
+    { label: "ERP Systems", href: "/services" },
+  ];
 
   const socialIcons = [
-    { icon: FacebookIcon, label: 'Facebook', href: '#' },
-    { icon: LinkedInIcon, label: 'LinkedIn', href: '#' },
-    { icon: GitHubIcon, label: 'GitHub', href: '#' },
-  ]
+    {
+      icon: FacebookIcon,
+      label: "Facebook",
+      href: "https://www.facebook.com/profile.php?id=61579526365449",
+    },
+    {
+      icon: InstagramIcon,
+      label: "Instagram",
+      href: "https://www.instagram.com/oxy2welve",
+    },
+    { icon: GitHubIcon, label: "GitHub", href: "#" },
+  ];
 
   return (
     <Box
       sx={{
-        backgroundColor: '#F9F9F9',
-        paddingTop: { xs: '40px', md: '60px' },
-        paddingBottom: { xs: '20px', md: '20px' },
+        backgroundColor: "#F9F9F9",
+        paddingTop: { xs: "40px", md: "60px" },
+        paddingBottom: { xs: "20px", md: "20px" },
       }}
     >
-      <Container maxWidth="xl" sx={{ paddingX: { xs: '20px', md: '40px' } }}>
+      <Container maxWidth="xl" sx={{ paddingX: { xs: "20px", md: "40px" } }}>
         {/* Main Footer Content */}
-        <Box sx={{ marginBottom: { xs: '40px', md: '60px' } }}>
+        <Box sx={{ marginBottom: { xs: "40px", md: "60px" } }}>
           <Grid container spacing={{ xs: 3, md: 4 }} alignItems="flex-start">
             {/* Column 1 - Logo & Description */}
             <Grid item xs={12} sm={6} md={4}>
               <Box>
                 {/* Logo */}
-                <Box sx={{ marginBottom: '20px' }}>
+                <Box sx={{ marginBottom: "20px" }}>
                   <img
                     src="/images/logo/logo.png"
                     alt="Oxy12 Logo"
-                    style={{ height: '50px' }}
+                    style={{ height: "50px" }}
                   />
                 </Box>
 
                 {/* Description */}
                 <Typography
                   sx={{
-                    fontSize: { xs: '13px', md: '14px' },
+                    fontSize: { xs: "13px", md: "14px" },
                     fontWeight: 400,
-                    color: '#333333',
+                    color: "#333333",
                     lineHeight: 1.7,
-                    marginBottom: '24px',
-                    maxWidth: '300px',
+                    marginBottom: "24px",
+                    maxWidth: "300px",
                   }}
                 >
-                  Transforming businesses through innovative digital solutions. We deliver scalable, secure, and user-centric technology.
+                  Transforming businesses through innovative digital solutions.
+                  We deliver scalable, secure, and user-centric technology.
                 </Typography>
 
                 {/* Social Icons */}
                 <Box
                   sx={{
-                    display: 'flex',
-                    gap: '12px',
+                    display: "flex",
+                    gap: "12px",
                   }}
                 >
                   {socialIcons.map((social, index) => {
@@ -80,23 +90,25 @@ export default function Footer() {
                       <Link
                         key={index}
                         href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         sx={{
-                          width: '40px',
-                          height: '40px',
-                          backgroundColor: 'primary.main',
-                          borderRadius: '50%',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          color: 'white',
-                          transition: 'all 0.3s ease',
-                          '&:hover': {
-                            backgroundColor: '#e56a2e',
-                            transform: 'translateY(-3px)',
+                          width: "40px",
+                          height: "40px",
+                          backgroundColor: "primary.main",
+                          borderRadius: "50%",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          color: "white",
+                          transition: "all 0.3s ease",
+                          "&:hover": {
+                            backgroundColor: "#e56a2e",
+                            transform: "translateY(-3px)",
                           },
                         }}
                       >
-                        <IconComponent sx={{ fontSize: '20px' }} />
+                        <IconComponent sx={{ fontSize: "20px" }} />
                       </Link>
                     );
                   })}
@@ -109,29 +121,31 @@ export default function Footer() {
               <Box>
                 <Typography
                   sx={{
-                    fontSize: '18px',
+                    fontSize: "18px",
                     fontWeight: 700,
-                    color: '#000000',
-                    marginBottom: '20px',
+                    color: "#000000",
+                    marginBottom: "20px",
                   }}
                 >
                   Company
                 </Typography>
 
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <Box
+                  sx={{ display: "flex", flexDirection: "column", gap: "12px" }}
+                >
                   {companyLinks.map((link, index) => (
                     <Link
                       key={index}
                       href={link.href}
                       sx={{
-                        fontSize: '14px',
+                        fontSize: "14px",
                         fontWeight: 400,
-                        color: '#333333',
-                        textDecoration: 'none',
-                        transition: 'all 0.3s ease',
-                        '&:hover': {
-                          color: 'primary.main',
-                          paddingLeft: '4px',
+                        color: "#333333",
+                        textDecoration: "none",
+                        transition: "all 0.3s ease",
+                        "&:hover": {
+                          color: "primary.main",
+                          paddingLeft: "4px",
                         },
                       }}
                     >
@@ -147,29 +161,31 @@ export default function Footer() {
               <Box>
                 <Typography
                   sx={{
-                    fontSize: '18px',
+                    fontSize: "18px",
                     fontWeight: 700,
-                    color: '#000000',
-                    marginBottom: '20px',
+                    color: "#000000",
+                    marginBottom: "20px",
                   }}
                 >
                   Services
                 </Typography>
 
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <Box
+                  sx={{ display: "flex", flexDirection: "column", gap: "12px" }}
+                >
                   {serviceLinks.map((link, index) => (
                     <Link
                       key={index}
                       href={link.href}
                       sx={{
-                        fontSize: '14px',
+                        fontSize: "14px",
                         fontWeight: 400,
-                        color: '#333333',
-                        textDecoration: 'none',
-                        transition: 'all 0.3s ease',
-                        '&:hover': {
-                          color: 'primary.main',
-                          paddingLeft: '4px',
+                        color: "#333333",
+                        textDecoration: "none",
+                        transition: "all 0.3s ease",
+                        "&:hover": {
+                          color: "primary.main",
+                          paddingLeft: "4px",
                         },
                       }}
                     >
@@ -185,69 +201,91 @@ export default function Footer() {
               <Box>
                 <Typography
                   sx={{
-                    fontSize: '18px',
+                    fontSize: "18px",
                     fontWeight: 700,
-                    color: '#000000',
-                    marginBottom: '20px',
+                    color: "#000000",
+                    marginBottom: "20px",
                   }}
                 >
                   Contact
                 </Typography>
 
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                <Box
+                  sx={{ display: "flex", flexDirection: "column", gap: "16px" }}
+                >
                   {/* Phone */}
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <Link href="tel:+94711950429" sx={{ textDecoration: "none" }}>
                     <Box
                       sx={{
-                        width: '40px',
-                        height: '40px',
-                        backgroundColor: 'primary.main',
-                        borderRadius: '50%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexShrink: 0,
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "12px",
                       }}
                     >
-                      <PhoneIcon sx={{ color: 'white', fontSize: '18px' }} />
+                      <Box
+                        sx={{
+                          width: "40px",
+                          height: "40px",
+                          backgroundColor: "primary.main",
+                          borderRadius: "50%",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          flexShrink: 0,
+                        }}
+                      >
+                        <PhoneIcon sx={{ color: "white", fontSize: "18px" }} />
+                      </Box>
+
+                      <Typography
+                        sx={{
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          color: "#333333",
+                        }}
+                      >
+                        +94 71 195 0429
+                      </Typography>
                     </Box>
-                    <Typography
-                      sx={{
-                        fontSize: '14px',
-                        fontWeight: 500,
-                        color: '#333333',
-                      }}
-                    >
-                      071 195 0429
-                    </Typography>
-                  </Box>
+                  </Link>
 
                   {/* Email */}
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <Link href="mailto:oxy2welve@gmail.com" sx={{ textDecoration: "none" }}>
                     <Box
                       sx={{
-                        width: '40px',
-                        height: '40px',
-                        backgroundColor: 'primary.main',
-                        borderRadius: '50%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexShrink: 0,
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "12px",
                       }}
                     >
-                      <EmailIcon sx={{ color: 'white', fontSize: '18px' }} />
+                      <Box
+                        sx={{
+                          width: "40px",
+                          height: "40px",
+                          backgroundColor: "primary.main",
+                          borderRadius: "50%",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          flexShrink: 0,
+                        }}
+                      >
+                        <EmailIcon
+                          href="mailto:oxy2welve@gmail.com"
+                          sx={{ color: "white", fontSize: "18px" }}
+                        />
+                      </Box>
+                      <Typography
+                        sx={{
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          color: "#333333",
+                        }}
+                      >
+                        oxy2welve@gmail.com
+                      </Typography>
                     </Box>
-                    <Typography
-                      sx={{
-                        fontSize: '14px',
-                        fontWeight: 500,
-                        color: '#333333',
-                      }}
-                    >
-                      oxy2twelve@gmail.com
-                    </Typography>
-                  </Box>
+                  </Link>
                 </Box>
               </Box>
             </Grid>
@@ -257,51 +295,51 @@ export default function Footer() {
         {/* Divider */}
         <Divider
           sx={{
-            marginBottom: { xs: '24px', md: '30px' },
-            backgroundColor: '#e0e0e0',
+            marginBottom: { xs: "24px", md: "30px" },
+            backgroundColor: "#e0e0e0",
           }}
         />
 
         {/* Footer Bottom */}
         <Box
           sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            flexDirection: { xs: 'column', md: 'row' },
-            gap: { xs: '16px', md: '0' },
-            paddingBottom: { xs: '20px', md: '20px' },
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            flexDirection: { xs: "column", md: "row" },
+            gap: { xs: "16px", md: "0" },
+            paddingBottom: { xs: "20px", md: "20px" },
           }}
         >
           {/* Copyright */}
           <Typography
             sx={{
-              fontSize: { xs: '13px', md: '14px' },
+              fontSize: { xs: "13px", md: "14px" },
               fontWeight: 400,
-              color: '#333333',
+              color: "#333333",
             }}
           >
-            Copyright @ 2026. Alright Reserved. Develop By Oxy12.
+            Copyright © 2025. Alright Reserved. Develop By Oxy12.
           </Typography>
 
           {/* Policy Links */}
           <Box
             sx={{
-              display: 'flex',
-              gap: { xs: '20px', md: '40px' },
-              justifyContent: 'center',
+              display: "flex",
+              gap: { xs: "20px", md: "40px" },
+              justifyContent: "center",
             }}
           >
             <Link
               href="#"
               sx={{
-                fontSize: '14px',
+                fontSize: "14px",
                 fontWeight: 400,
-                color: '#333333',
-                textDecoration: 'none',
-                transition: 'all 0.3s ease',
-                '&:hover': {
-                  color: 'primary.main',
+                color: "#333333",
+                textDecoration: "none",
+                transition: "all 0.3s ease",
+                "&:hover": {
+                  color: "primary.main",
                 },
               }}
             >
@@ -310,13 +348,13 @@ export default function Footer() {
             <Link
               href="#"
               sx={{
-                fontSize: '14px',
+                fontSize: "14px",
                 fontWeight: 400,
-                color: '#333333',
-                textDecoration: 'none',
-                transition: 'all 0.3s ease',
-                '&:hover': {
-                  color: 'primary.main',
+                color: "#333333",
+                textDecoration: "none",
+                transition: "all 0.3s ease",
+                "&:hover": {
+                  color: "primary.main",
                 },
               }}
             >
@@ -326,5 +364,5 @@ export default function Footer() {
         </Box>
       </Container>
     </Box>
-  )
+  );
 }
