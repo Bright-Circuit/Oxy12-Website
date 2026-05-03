@@ -1555,7 +1555,7 @@ export default function page() {
       </Box>
 
       {/* Testimonials Section */}
-      <Box
+      {/* <Box
         ref={testimonialsRef}
         sx={{
           backgroundColor: "#ffffff",
@@ -1567,9 +1567,7 @@ export default function page() {
           },
         }}
       >
-        {/* Testimonials Carousal */}
            <Container maxWidth="xl">
-          {/* Section Header */}
           <Box
             sx={{
               textAlign: "center",
@@ -1577,7 +1575,6 @@ export default function page() {
               animation: testimonialsInView ? "fadeInUp 0.8s ease-out" : "none",
             }}
           >
-            {/* "Testimonials" Label */}
             <Typography
               sx={{
                 fontSize: "16px",
@@ -1590,7 +1587,6 @@ export default function page() {
               Testimonials
             </Typography>
 
-            {/* Heading */}
             <Typography
               sx={{
                 fontSize: { xs: "40px", sm: "50px", md: "56px" },
@@ -1603,7 +1599,6 @@ export default function page() {
             </Typography>
           </Box>
 
-          {/* Carousel Container */}
           <Box
             sx={{
               position: "relative",
@@ -1616,7 +1611,6 @@ export default function page() {
                 : "none",
             }}
           >
-            {/* Previous Button */}
             <Button
               onClick={handlePrev}
               sx={{
@@ -1638,7 +1632,6 @@ export default function page() {
               <ChevronLeftIcon />
             </Button>
 
-            {/* Cards Container */}
             <Box
               sx={{
                 display: "grid",
@@ -1672,7 +1665,6 @@ export default function page() {
                         : "0 12px 40px rgba(49, 55, 66, 0.25)",
                     }}
                   >
-                    {/* Rating */}
                     <Box
                       sx={{
                         display: "flex",
@@ -1702,7 +1694,6 @@ export default function page() {
                       </Typography>
                     </Box>
 
-                    {/* Testimonial Text */}
                     <Typography
                       sx={{
                         fontSize: "15px",
@@ -1718,7 +1709,6 @@ export default function page() {
                       " {testimonial.text} "
                     </Typography>
 
-                    {/* Author Info */}
                     <Box
                       sx={{
                         display: "flex",
@@ -1730,7 +1720,6 @@ export default function page() {
                           : "1px solid #E0E0E0",
                       }}
                     >
-                      {/* Avatar */}
                       <Box
                         sx={{
                           width: "60px",
@@ -1741,7 +1730,6 @@ export default function page() {
                         }}
                       />
 
-                      {/* Author Details */}
                       <Box>
                         <Typography
                           sx={{
@@ -1769,7 +1757,6 @@ export default function page() {
               })}
             </Box>
 
-            {/* Next Button */}
             <Button
               onClick={handleNext}
               sx={{
@@ -1792,7 +1779,6 @@ export default function page() {
             </Button>
           </Box>
 
-          {/* Mobile Navigation Buttons */}
           <Box
             sx={{
               display: { xs: "flex", md: "none" },
@@ -1841,7 +1827,7 @@ export default function page() {
             </Button>
           </Box>
         </Container>
-      </Box>
+      </Box> */}
     </>
   );
 }
