@@ -23,7 +23,6 @@ import RocketIcon from "@mui/icons-material/Rocket";
 import ShieldIcon from "@mui/icons-material/Shield";
 import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
 
-
 // Custom hook for scroll animations
 const useInView = (ref, options = {}) => {
   const [isInView, setIsInView] = useState(false);
@@ -565,8 +564,10 @@ export default function page() {
                           lineHeight: 1.6,
                         }}
                       >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut
+                        We help businesses build stronger customer relationships
+                        through smart digital solutions, seamless communication,
+                        and personalized user experiences that increase customer
+                        satisfaction and loyalty.
                       </Typography>
                     </Box>
                   </Box>
@@ -643,8 +644,9 @@ export default function page() {
                           lineHeight: 1.6,
                         }}
                       >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut
+                        Our dedicated support team is available around the clock
+                        to assist you with technical issues, updates, and
+                        customer inquiries whenever you need reliable help.
                       </Typography>
                     </Box>
                   </Box>
@@ -714,8 +716,9 @@ export default function page() {
                           lineHeight: 1.6,
                         }}
                       >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut
+                        Boost your business growth with powerful strategies,
+                        modern technology, and optimized digital platforms
+                        designed to attract customers and increase conversions.
                       </Typography>
                     </Box>
                   </Box>
@@ -1327,7 +1330,10 @@ export default function page() {
                     flexGrow: 1,
                   }}
                 >
-                  Custom, responsive websites built with cutting-edge technologies. From corporate sites to complex web applications, we deliver scalable solutions that grow with your business.
+                  Custom, responsive websites built with cutting-edge
+                  technologies. From corporate sites to complex web
+                  applications, we deliver scalable solutions that grow with
+                  your business.
                 </Typography>
               </Box>
             </Grid>
@@ -1372,7 +1378,9 @@ export default function page() {
                     marginBottom: "24px",
                   }}
                 >
-                  <PhoneAndroidIcon sx={{ color: "primary.main", fontSize: "36px" }} />
+                  <PhoneAndroidIcon
+                    sx={{ color: "primary.main", fontSize: "36px" }}
+                  />
                 </Box>
 
                 {/* Title */}
@@ -1397,7 +1405,9 @@ export default function page() {
                     flexGrow: 1,
                   }}
                 >
-                 Native and cross-platform mobile applications for iOS and Android. We create intuitive, feature-rich apps that engage users and drive business growth.
+                  Native and cross-platform mobile applications for iOS and
+                  Android. We create intuitive, feature-rich apps that engage
+                  users and drive business growth.
                 </Typography>
               </Box>
             </Grid>
@@ -1465,7 +1475,9 @@ export default function page() {
                     flexGrow: 1,
                   }}
                 >
-                  Complete e-commerce platforms with payment integration, inventory management, and analytics. Transform your business into a digital marketplace.
+                  Complete e-commerce platforms with payment integration,
+                  inventory management, and analytics. Transform your business
+                  into a digital marketplace.
                 </Typography>
               </Box>
             </Grid>
