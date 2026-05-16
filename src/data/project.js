@@ -21,7 +21,7 @@ export const projects = [
     category: 'E-Commerce',
     description: 'Lamore Fashion is a modern e-commerce platform designed to provide a seamless shopping experience for fashion enthusiasts. It features a user-friendly interface, extensive product catalog, and robust backend systems to support efficient order management and customer service.',
     image: '/images/projects/lamore.png',
-    link: 'https://example.com',
+    link: 'https://lamore.bcircuit.com',
   },
   {
     id: 4,
@@ -29,7 +29,15 @@ export const projects = [
     category: 'Website',
     description: 'Mango Parcel is a modern website designed to provide a seamless browsing experience for users. It features a clean and intuitive interface, fast loading times, and responsive design to ensure optimal performance across all devices.',
     image: '/images/projects/mango-parcel.png',
-    link: 'https://example.com',
+    link: 'https://mangoparcel.bcircuit.com/',
+  },
+  {
+    id: 5,
+    title: 'Akindu Plumbing & Construction',
+    category: 'Website',
+    description: 'Akindu Plumbing & Construction is a modern website designed to provide a seamless browsing experience for users. It features a clean and intuitive interface, fast loading times, and responsive design to ensure optimal performance across all devices.',
+    image: '/images/projects/akindu-plumbing.png',
+    link: 'https://plumbing.bcircuit.com/',
   },
 //   {
 //     id: 5,
