@@ -39,6 +39,14 @@ export const projects = [
     image: '/images/projects/akindu-plumbing.png',
     link: 'https://plumbing.bcircuit.com/',
   },
+  {
+    id: 6,
+    title: 'SH Womens',
+    category: 'E-Commerce',
+    description: 'SH Womens is a modern e-commerce platform designed to provide a seamless shopping experience for women. It features a user-friendly interface, extensive product catalog, and robust backend systems to support efficient order management and customer service.',
+    image: '/images/projects/sh-womens.png',
+    link: 'https://shwomen.bcircuit.com/',
+  },
 //   {
 //     id: 5,
 //     title: 'Mobile Shop',
